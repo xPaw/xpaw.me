@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+
+	<title>xPaw</title>
+
+	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto+Slab|Roboto">
+	<style>
+	html, body, .do-you-even-flexbox {
+		height: 100%;
+	}
+
+	body {
+		margin: 0;
+		font: normal 14px/1.2 "Roboto", Helvetica, Arial, sans-serif;
+		text-align: center;
+		background: #111;
+	}
+
+	::-moz-selection{ background:#F3734F; color:#fff; }
+	::selection{ background:#F3734F; color:#fff; }
+
+	a {
+		text-decoration: none;
+	}
+
+	a:hover, a:active {
+		outline: none;
+		text-decoration: underline;
+	}
+
+	a:focus {
+		outline: thin dotted;
+	}
+
+	.do-you-even-flexbox, .container {
+		display: inline-block;
+		vertical-align: middle;
+	}
+
+	.container {
+		padding: 8px 20px 15px;
+	}
+
+	h1, h2 {
+		font-family: "Roboto Slab", Helvetica, Arial, sans-serif;
+		margin: 0;
+		color: #FFF;
+		font-weight: 400;
+		font-size: 96px;
+	}
+
+	h2 {
+		font-size: 36px;
+	}
+
+	.social {
+		margin-top: 30px;
+	}
+
+	.social a {
+		background: #212121;
+		border: 1px solid #141414;
+		border-radius: 35px;
+		margin: 0 3px;
+		width: 26px;
+		height: 26px;
+		padding: 16px;
+		display: inline-block;
+		-webkit-transition: background .6s ease;
+		transition: background .6s ease;
+	}
+
+	.social a:hover,
+	.social a:focus {
+		outline: none;
+		background: #F3734F;
+		border-color: #d35400;
+	}
+
+	.icon {
+		width: 26px;
+		height: 26px;
+		line-height: 26px;
+		display: inline-block;
+		background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKEAAAAaCAMAAADogswyAAAAM1BMVEXh4eHZ2dnX19fb29vW1tba2trh4eHg4ODi4uLg4ODT09Pc3Nzf39/X19cAAADT09Pk5ORlFvGcAAAAD3RSTlNwUCCz2zCAoGCP7scQQADKGrH8AAAD4ElEQVR42rVXCXKkMAzE9ynL/3/tYsngA5LJbm26akIFbNRqWQdH+QxjU6w1JiuX27YOxJDLD5AD1gfw+72fGUIaL0tQBtJqx/yAoK6v0PkfGbLXzbqzANY1/yd/NzPxzYyJNfpSAmIo56V+gfA9wwwvkLfXZILh4+Sv2c348oBEehDwOBrFLcRO5CwcBeBBS5+WfDNpjpzqK1LuBF2eFHWD4sHKWWtdN/hkaM/XtKfHuRw31RGKbEpA431Scc/TkEKM5RgEd4oUll0Zf4eEeSkmwhtgP4upbQ/vDKEEDjAQQzV5GIYbwh/1S5QCJIzCLmO2qBsxThf2k84x9MOkdn+wEucrykuITx4KQJ3bXLOVKGwEOQldv2eY6Pi3WDY6OrabOdZEdLsSw+ej6P7/lEx04UxZGQrJ+qsqRWdYkfNWLIe7MUz4KFGpkTEc4zg/oDibW7c65YyUHHVG9oGraPD5LfszsDfn5XT28jJasxRa2897cFuS0fJzJe51L1Ho7H32NABY7CfSsgugUvJueZ9PScHCUJeNocRbHTVJeGWkMm56n+ElJzVHp2KGLMURz7TLLjPSLjhtMC1DAjPZhCehpb5vUT5cfQFcDGs0kK62YWIPYCSx1p2uqRdJyb0aBj4GCrOjyr5UfZdRDYaUYHumvMHcDCv6ArpFrfjLdiEXtq2JTuCiLHtYoMc6pfBogQZrSGkwJPXWavOaslgmhkbm4n3J0vyIoZ9vKn9XWX9qSAR9pF5EV6KIqj06oUXXd6nYGesTajBEIxBFKe2vwTvKTlir1yZvrWpRDkMLPm2R35ObA5YrQCzjatldCNoVsBYKo3e9yjo/4G+GCI4MKjpqgFemJEOSTYCeKboXAwMAYnjB1Sk/GWb6S5AKe4s0vI8ZvrS3OLrrEZcHR52rjV2d4mpz8d3K1FWmtyjz3QGhKUuxzgzTq4TMMD7I16tiyyDHhJiAO7O8hF0E5pbAGu5gDYO4KZ5eqrl/vYVZ09KPXc/FfEWaEpS7Hm/T83Zt5TVS2Lcpx5HwSl4M82qLh8kZyEs/Tw4x2oAjL3hyUD2ojhauAC42oROWlvXpPcUbHaBFWay2mHh8Du2fp69J/DF9xX5OIi3cELjcoFbWKl2p2NAu1t2xc+nJ0OsnwfKjCdbUWMP5GxNsR34f4bmnSIenISe5p9yTQ682bo2XsDbhbF5+/E6ZvwKgitp+Pq4Egc6IeDt1taqrLyueUe5Omdrwn/beYeOcqf5vvqTY8XpUVZcvqTF1lSfkOtvQkk9fUiIknm2s+U9fo8Vf/u/Y58Nf/RrlbCRbm2975/utL/o/033gQxqd06MAAAAASUVORK5CYII=');
+	}
+
+	.icon.github { background-position: -27px 0 }
+	.icon.reddit { background-position: -81px 0 }
+	.icon.steam { background-position: -108px 0 }
+	.icon.twatter { background-position: -135px 0 }
+
+	.links {
+		color: #626D75;
+		margin-top: 30px;
+	}
+
+	.links a {
+		display: inline-block;
+		padding: 0 5px;
+		color: #e74c3c;
+	}
+
+	.links a:hover {
+		color: #F3734F;
+	}
+
+	@media (max-width: 660px) {
+		.do-you-even-flexbox {
+			display: none;
+		}
+
+		.container {
+			display: block;
+			margin: 0 auto;
+			margin-top: 4%;
+		}
+		
+		.links a {
+			display: block;
+		}
+		
+		h1 {
+			font-size: 64px;
+		}
+		
+		h2 {
+			font-size: 24px;
+		}
+	}
+
+	@media (max-width: 460px) {
+		h1 {
+			font-size: 48px;
+		}
+		
+		h2 {
+			font-size: 16px;
+		}
+	}
+
+	@media (max-width: 350px) {
+		h1 {
+			font-size: 40px;
+		}
+	}
+	</style>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="xPaw's Personal Website">
+
+	<link rel="author" href="https://plus.google.com/112834339046661065024">
+	<link rel="image_src" href="http://s.gravatar.com/avatar/a14f752ce8cc1b7c0556435191c8358f?s=375">
+</head>
+<body>
+	<i class="do-you-even-flexbox"></i>
+	
+	<div class="container">
+		<h1>Hi, I'm Pavel.</h1>
+		<h2>I build web apps and game plugins.</h2>
+		
+		<div class="social">
+			<a href="mailto:me@xpaw.ru"><i class="icon email"></i></a>
+			<a href="https://twitter.com/thexpaw"><i class="icon twatter"></i></a>
+			<a href="https://github.com/xPaw"><i class="icon github"></i></a>
+			<a href="https://steamcommunity.com/id/xpaw"><i class="icon steam"></i></a>
+			<a href="http://www.reddit.com/user/xPaw/"><i class="icon reddit"></i></a>
+		</div>
+		
+		<div class="links">
+			<a href="http://steamdb.info">Steam Database</a> •
+			<a href="http://steamstat.us">Steam Status</a> •
+			<a href="http://xpaw.ru/mcstatus/">Minecraft Status</a>
+		</div>
+	</div>
+</body>
+</html>
