@@ -82,15 +82,11 @@
 	.icon {
 		width: 26px;
 		height: 26px;
-		line-height: 26px;
-		display: inline-block;
-		background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKEAAAAaCAMAAADogswyAAAAM1BMVEXh4eHZ2dnX19fb29vW1tba2trh4eHg4ODi4uLg4ODT09Pc3Nzf39/X19cAAADT09Pk5ORlFvGcAAAAD3RSTlNwUCCz2zCAoGCP7scQQADKGrH8AAAD4ElEQVR42rVXCXKkMAzE9ynL/3/tYsngA5LJbm26akIFbNRqWQdH+QxjU6w1JiuX27YOxJDLD5AD1gfw+72fGUIaL0tQBtJqx/yAoK6v0PkfGbLXzbqzANY1/yd/NzPxzYyJNfpSAmIo56V+gfA9wwwvkLfXZILh4+Sv2c348oBEehDwOBrFLcRO5CwcBeBBS5+WfDNpjpzqK1LuBF2eFHWD4sHKWWtdN/hkaM/XtKfHuRw31RGKbEpA431Scc/TkEKM5RgEd4oUll0Zf4eEeSkmwhtgP4upbQ/vDKEEDjAQQzV5GIYbwh/1S5QCJIzCLmO2qBsxThf2k84x9MOkdn+wEucrykuITx4KQJ3bXLOVKGwEOQldv2eY6Pi3WDY6OrabOdZEdLsSw+ej6P7/lEx04UxZGQrJ+qsqRWdYkfNWLIe7MUz4KFGpkTEc4zg/oDibW7c65YyUHHVG9oGraPD5LfszsDfn5XT28jJasxRa2897cFuS0fJzJe51L1Ho7H32NABY7CfSsgugUvJueZ9PScHCUJeNocRbHTVJeGWkMm56n+ElJzVHp2KGLMURz7TLLjPSLjhtMC1DAjPZhCehpb5vUT5cfQFcDGs0kK62YWIPYCSx1p2uqRdJyb0aBj4GCrOjyr5UfZdRDYaUYHumvMHcDCv6ArpFrfjLdiEXtq2JTuCiLHtYoMc6pfBogQZrSGkwJPXWavOaslgmhkbm4n3J0vyIoZ9vKn9XWX9qSAR9pF5EV6KIqj06oUXXd6nYGesTajBEIxBFKe2vwTvKTlir1yZvrWpRDkMLPm2R35ObA5YrQCzjatldCNoVsBYKo3e9yjo/4G+GCI4MKjpqgFemJEOSTYCeKboXAwMAYnjB1Sk/GWb6S5AKe4s0vI8ZvrS3OLrrEZcHR52rjV2d4mpz8d3K1FWmtyjz3QGhKUuxzgzTq4TMMD7I16tiyyDHhJiAO7O8hF0E5pbAGu5gDYO4KZ5eqrl/vYVZ09KPXc/FfEWaEpS7Hm/T83Zt5TVS2Lcpx5HwSl4M82qLh8kZyEs/Tw4x2oAjL3hyUD2ojhauAC42oROWlvXpPcUbHaBFWay2mHh8Du2fp69J/DF9xX5OIi3cELjcoFbWKl2p2NAu1t2xc+nJ0OsnwfKjCdbUWMP5GxNsR34f4bmnSIenISe5p9yTQ682bo2XsDbhbF5+/E6ZvwKgitp+Pq4Egc6IeDt1taqrLyueUe5Omdrwn/beYeOcqf5vvqTY8XpUVZcvqTF1lSfkOtvQkk9fUiIknm2s+U9fo8Vf/u/Y58Nf/RrlbCRbm2975/utL/o/033gQxqd06MAAAAASUVORK5CYII=');
 	}
 
-	.icon.github { background-position: -27px 0 }
-	.icon.reddit { background-position: -81px 0 }
-	.icon.steam { background-position: -108px 0 }
-	.icon.twatter { background-position: -135px 0 }
+	.icon > path {
+		fill: #FFF;
+	}
 
 	.links {
 		color: #626D75;
@@ -161,12 +157,33 @@
 		<h1>Hi, I'm Pavel.</h1>
 		<h2>I build web apps and game plugins.</h2>
 		
+		<!-- Icons by icons8.com -->
 		<div class="social">
-			<a href="mailto:me@xpaw.ru"><i class="icon email"></i></a>
-			<a href="https://twitter.com/thexpaw"><i class="icon twatter"></i></a>
-			<a href="https://github.com/xPaw"><i class="icon github"></i></a>
-			<a href="https://steamcommunity.com/id/xpaw"><i class="icon steam"></i></a>
-			<a href="http://www.reddit.com/user/xPaw/"><i class="icon reddit"></i></a>
+			<a href="mailto:me@xpaw.ru">
+				<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 50 50" class="icon">
+					<path d="M44.2 7.7H5.8C2.5 7.7 0 10.2 0 13.5v23.1c0 3.3 2.5 5.8 5.8 5.8h38.5c3.3 0 5.8-2.5 5.8-5.8V13.5 C50 10.2 47.5 7.7 44.2 7.7z M33.7 24.8L46 37.5L31 26.7l-6 3.8l-6-3.8L4 37.5l12.3-12.7L1.5 13.3L25 25.8l23.5-12.7L33.7 24.8z">
+				</svg>
+			</a>
+			<a href="https://twitter.com/thexpaw">
+				<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 50 50" class="icon">
+					<path d="M44.6 16c0 0.4 0 1 0 1.3C44.6 30.6 34.4 46 16 46c-5.8 0-11-1.7-15.4-4.6c0.8 0 1.5 0.2 2.5 0.2 c4.8 0 9-1.5 12.5-4.2c-4.4 0-8.1-3.1-9.4-6.9c0.6 0.2 1.2 0.2 1.9 0.2c1 0 1.7-0.2 2.7-0.4c-4.6-1-8.1-5-8.1-9.8c0 0 0 0 0-0.2 C4 21 5.6 21.3 7.3 21.5c-2.7-1.7-4.4-4.8-4.4-8.5c0-1.9 0.6-3.7 1.3-5c5 6.2 12.5 10.2 20.8 10.6c-0.2-0.8-0.2-1.5-0.2-2.3 c0-5.6 4.6-10 10.2-10c2.9 0 5.6 1.2 7.3 3.3c2.3-0.4 4.4-1.3 6.3-2.5c-0.8 2.3-2.3 4.4-4.4 5.6c2.1-0.2 4-0.8 5.8-1.5 C48.5 12.7 46.7 14.6 44.6 16z">
+				</svg>
+			</a>
+			<a href="https://github.com/xPaw">
+				<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 50 50" class="icon">
+					<path d="M25 0.4C11.3 0.4 0.4 11.3 0.4 25s11 24.6 24.6 24.6s24.6-11 24.6-24.6S38.7 0.4 25 0.4z M25 4.2 c11.5 0 20.8 9.2 20.8 20.8c0 1 0 1.7-0.2 2.7c-0.6-0.2-1.7-0.4-2.9-0.4c-1 0-2.3 0.2-3.3 0.4c0.2-0.8 0.4-1.5 0.4-2.5 c0-2.1-0.8-4.2-2.3-6.2c0.6-1.7 1.3-5.6-0.2-7.1c-3.5 0-5.4 2.1-6 2.9c-1.7-0.6-3.5-1-5.4-1s-3.7 0.4-5.2 1c-0.6-0.8-2.7-2.7-6-2.7 c-1.5 1.2-0.8 4.8-0.2 6.7c-1.5 1.9-2.3 4-2.3 6.2c0 0.8 0.2 1.7 0.4 2.5c-1 0-3.3-0.4-4.2-0.4s-2.7 0.2-3.8 0.6 c-0.2-1-0.2-1.7-0.2-2.7C4.2 13.5 13.5 4.2 25 4.2z M45.4 28.7c-0.4-0.2-1.9-0.6-3.3-0.6c-0.8 0-1.9 0-2.9 0.2c0-0.2 0-0.2 0.2-0.4 c0.8-0.2 2.3-0.4 3.3-0.4c0 0 0 0 0.2 0c1.2 0 2.3 0.2 2.9 0.4C45.6 28.3 45.6 28.5 45.4 28.7z M30.8 45c-0.6 0.2-1.3 0.4-1.9 0.4 v-2.9c0-0.6 0.4-1 1-1s1 0.4 1 1V45z M23.1 45.8c-0.6 0-1.3-0.2-1.9-0.2v-2.9c0-0.6 0.4-1 1-1s1 0.4 1 1V45.8z M4.4 28.1 c1-0.2 2.7-0.6 3.7-0.6s3.7 0.2 4.4 0.4c0 0.2 0.2 0.4 0.2 0.6c-1.2 0-3.5-0.2-4.6 0c-1.5 0.2-2.9 0.8-3.5 1.2 C4.6 29 4.6 28.7 4.4 28.1z M4.8 30c0.6-0.2 1.9-1 3.5-1.2c1.2-0.2 3.7 0 4.6 0c1.3 3.1 4.4 5.2 9.2 5.8c-0.6 0.4-1.2 1-1.5 1.7l0 0 c-1 1.2-2.9 1.2-4.4 1.2c-1.7 0-2.7-1.3-3.7-2.5c-1-1.2-2.1-1.3-2.7-1.3S9 33.8 9.2 34.2c1.9 1.3 2.5 2.9 3.3 4.2 c0.8 1.3 2.1 1.9 3.7 1.9c0.4 0 2.1 0 2.9 0c0 0.2 0 0.4 0 0.6v4C12.1 42.9 6.5 37.1 4.8 30z M25 41.3c0-0.6 0.4-1 1-1s1 0.4 1 1 v4.4c-0.6 0-1.3 0.2-1.9 0.2V41.3z M32.7 44.2V41c0-2.1-1.2-4.8-3.1-6.2c5-0.8 8.1-2.9 9.4-6c1 0 2.3-0.2 3.1-0.2 c1.3 0 2.9 0.4 3.3 0.6C44 36.2 39 41.7 32.7 44.2z">
+				</svg>
+			</a>
+			<a href="https://steamcommunity.com/id/xpaw">
+				<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 50 50" class="icon">
+					<path d="M21.2 34.6c0-1.7-1.2-3.3-2.9-3.7l0 0l0 0c0 0 0 0-0.2 0l-5-1.3c1.2-1 2.5-1.5 4.2-1.5 c3.7 0 6.5 2.9 6.5 6.7s-2.9 6.5-6.5 6.5c-2.9 0-5.4-1.9-6.2-4.4l5.2 1.5l0 0c0.2-0.2 0.6 0 1 0C19.4 38.5 21.2 36.7 21.2 34.6z M40.6 0H9.4C4.2 0 0 4.2 0 9.4v16.3l9.8 2.9c1.7-2.3 4.4-3.8 7.5-3.8c0.2 0 0.2 0 0.2 0l5.4-7.5v-0.2c0-6.3 5.2-11.7 11.7-11.7 s11.7 5.2 11.7 11.7c0 6.3-5.2 11.7-11.7 11.7h-0.2l-7.5 5.4c0 0.2 0 0.2 0 0.4c0 5.4-4.4 9.8-9.8 9.8c-5 0-9-3.8-9.6-8.7l-7.7-2.3 v7.1C0 45.8 4.2 50 9.4 50h31.2c5.2 0 9.4-4.2 9.4-9.4V9.4C50 4.2 45.8 0 40.6 0z M26.5 17.3c0-4.4 3.7-8.1 8.1-8.1s8.1 3.7 8.1 8.1 s-3.7 8.1-8.1 8.1S26.5 21.7 26.5 17.3z M29 17.3c0 3.1 2.5 5.6 5.6 5.6s5.6-2.5 5.6-5.6s-2.5-5.6-5.6-5.6S29 14.2 29 17.3z">
+				</svg>
+			</a>
+			<a href="http://www.reddit.com/user/xPaw/">
+				<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 50 50" class="icon">
+					<path d="M36.2 28.8c0 1.9-1.5 3.5-3.5 3.5s-3.5-1.5-3.5-3.5s1.5-3.5 3.5-3.5S36.2 26.9 36.2 28.8z M20.8 28.8 c0-1.9-1.5-3.5-3.5-3.5s-3.5 1.5-3.5 3.5s1.5 3.5 3.5 3.5S20.8 30.8 20.8 28.8z M15.4 37.3c1.2 2.5 5 5 9.6 5s8.3-2.5 9.6-5 c-2.3 1.3-5.8 2.3-9.6 2.3S17.7 38.7 15.4 37.3z M36.9 9.6c0-3.1 2.5-5.4 5.4-5.4c2.9 0 5.4 2.5 5.4 5.4S45.4 15 42.3 15 S36.9 12.7 36.9 9.6z M38.8 9.6c0 1.9 1.5 3.5 3.5 3.5s3.5-1.5 3.5-3.5s-1.5-3.5-3.5-3.5S38.8 7.7 38.8 9.6z M49.6 24.8 c-0.2 1.7-1 3.3-2.3 4.4c0.2 0.8 0.4 1.5 0.4 2.5c0 8.8-10.2 16-22.7 16s-22.7-7.1-22.7-16c0-0.8 0.2-1.7 0.4-2.5 c-1.2-1.2-2.1-2.7-2.3-4.4c-0.2-1.9 0.4-3.8 1.5-5.2s2.9-2.1 4.8-2.1c1.7 0 3.3 0.6 4.4 1.5c3.5-1.7 7.5-2.9 11.9-3.3 c0-4.2 0.8-11.9 6.7-11.9c2.9 0 4.4 1.7 5.4 2.7c0.8 1 1 1.2 1.3 1.2v3.8c-2.3 0-3.5-1.3-4.4-2.5c-0.8-1-1.2-1.3-2.3-1.3 s-2.7 1.5-2.9 8.1c4.4 0.2 8.5 1.3 11.9 3.3c1.3-1 2.9-1.5 4.4-1.5l0 0c1.9 0 3.7 0.8 4.8 2.1C49.2 21 49.8 22.9 49.6 24.8z M3.8 26 c1-1.9 2.5-3.7 4.4-5c-0.6-0.2-1.2-0.4-1.5-0.4c-1 0-1.9 0.4-2.5 1.2c-0.6 0.8-1 1.7-0.8 2.9C3.5 25 3.7 25.4 3.8 26z M44.6 31.7 c0-6.9-9-12.9-19.6-12.9s-19.6 6-19.6 12.9s9 12.9 19.6 12.9S44.6 38.7 44.6 31.7z M46.2 26c0.2-0.4 0.4-1 0.4-1.5 c0.2-1.2-0.2-2.1-0.8-2.9c-0.6-0.8-1.5-1.2-2.5-1.2c-0.6 0-1.2 0.2-1.5 0.4C43.7 22.3 45.2 24 46.2 26z">
+				</svg>
+			</a>
 		</div>
 		
 		<div class="links">
