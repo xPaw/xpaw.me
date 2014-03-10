@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 <head>
 	<meta charset="UTF-8">
@@ -40,11 +40,15 @@
 			color: #e74c3c;
 			padding: 4px;
 			text-decoration: none;
+			border: 1px dotted transparent;
+			-webkit-transition: color .2s ease, border-color .2s ease;
+			transition: color .2s ease, border-color .2s ease;
 		}
 		
 		a:hover, a:focus {
 			color: #F3734F;
-			outline: thin dotted;
+			border-color: #F3734F;
+			outline: none;
 		}
 	</style>
 </head>
