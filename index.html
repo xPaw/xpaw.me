@@ -15,7 +15,7 @@
 		margin: 0;
 		font: normal 14px/1.2 "Roboto", Helvetica, Arial, sans-serif;
 		text-align: center;
-		background: #111;
+		background: #111 url( 'background.jpg' ) center / cover;
 	}
 
 	::-moz-selection{ background:#F3734F; color:#fff; }
@@ -60,23 +60,21 @@
 	}
 
 	.social a {
-		background: #212121;
-		border: 1px solid #141414;
+		background-color: #F5F7FA;
 		border-radius: 35px;
 		margin: 0 3px;
 		width: 26px;
 		height: 26px;
 		padding: 16px;
 		display: inline-block;
-		-webkit-transition: background .6s ease, border-color .6s ease;
-		transition: background .6s ease, border-color .6s ease;
+		-webkit-transition: background-color .6s ease;
+		transition: background-color .6s ease;
 	}
 
 	.social a:hover,
 	.social a:focus {
 		outline: none;
-		background: #F3734F;
-		border-color: #d35400;
+		background-color: #FC6E51;
 	}
 
 	.icon {
@@ -85,22 +83,22 @@
 	}
 
 	.icon > path {
-		fill: #FFF;
+		fill: #111;
 	}
 
 	.links {
-		color: #626D75;
+		color: #333;
 		margin-top: 30px;
 	}
 
 	.links a {
 		display: inline-block;
 		padding: 0 5px;
-		color: #e74c3c;
+		color: #F5F7FA;
 	}
 
 	.links a:hover {
-		color: #F3734F;
+		color: #CCD1D9;
 	}
 
 	@media (max-width: 660px) {
@@ -113,9 +111,6 @@
 			margin-top: 4%;
 		}
 		
-		.social a {
-			margin: 0;
-		}
 		
 		.links a {
 			display: block;
@@ -131,6 +126,10 @@
 	}
 
 	@media (max-width: 460px) {
+		body {
+			background: #111;
+		}
+		
 		h1 {
 			font-size: 48px;
 		}
