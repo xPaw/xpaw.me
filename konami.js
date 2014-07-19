@@ -17,7 +17,7 @@
 			
 			var element = document.querySelector( 'h2' );
 			
-			element.textContent = element.textContent.replace( ' and', ',' ).replace( '.', ', and stalk corporations.' );
+			element.textContent = element.textContent.replace( ' and', ',' ).replace( '.', ', and \x73\x74\x61\x6C\x6B \x63\x6F\x72\x70\x6F\x72\x61\x74\x69\x6F\x6E\x73.' );
 			
 			return false;
 		}
