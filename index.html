@@ -5,7 +5,7 @@
 
 	<title>xPaw</title>
 
-	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto+Slab|Roboto">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab|Roboto">
 	<style>
 	html, body, .do-you-even-flexbox {
 		height: 100%;
@@ -13,7 +13,7 @@
 
 	body {
 		margin: 0;
-		font: normal 14px/1.2 "Roboto", Helvetica, Arial, sans-serif;
+		font: normal 16px/1.2 "Roboto", Helvetica, Arial, sans-serif;
 		text-align: center;
 		text-shadow: 1px 1px #000;
 		background: #111 url( 'background3.png' ) center top / cover;
@@ -49,11 +49,11 @@
 		margin: 0;
 		color: #FFF;
 		font-weight: 400;
-		font-size: 96px;
+		font-size: 6em;
 	}
 
 	h2 {
-		font-size: 36px;
+		font-size: 2em;
 	}
 
 	.social {
@@ -88,6 +88,7 @@
 	}
 
 	.links {
+		font-size: 16px;
 		color: #333;
 	}
 
@@ -102,40 +103,33 @@
 	}
 
 	@media (max-width: 660px) {
-		h1 {
-			font-size: 64px;
-		}
-		
-		h2 {
-			font-size: 24px;
+		body {
+			font-size: 12px;
 		}
 	}
 
-	@media (max-width: 460px) {
+	@media (max-width: 500px) {
+		body {
+			font-size: 9px;
+		}
+		
 		.do-you-even-flexbox {
 			display: none;
 		}
-
+		
 		.container {
 			margin: 0 auto;
 			margin-top: 4%;
 		}
+		
 		.links a {
 			display: block;
 		}
-		
-		h1 {
-			font-size: 48px;
-		}
-		
-		h2 {
-			font-size: 16px;
-		}
 	}
-
-	@media (max-width: 350px) {
+	
+	@media (max-width: 390px) {
 		h1 {
-			font-size: 40px;
+			font-size: 5em;
 		}
 	}
 	</style>
