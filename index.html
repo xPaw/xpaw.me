@@ -13,20 +13,28 @@
 
 	body {
 		margin: 0;
+		color: #FFF;
 		font: normal 16px/1.2 "Roboto", Helvetica, Arial, sans-serif;
 		text-align: center;
 		text-shadow: 1px 1px #000;
-		background: #111 url( 'background3.png' ) center top / cover;
+		background: #111 url( 'background3.png' ) no-repeat center center fixed;
+		background-size: cover;
+	}
+
+	*, *:before, *:after {
+		box-sizing: border-box;
 	}
 
 	::-moz-selection { background: #3BAFDA; color: #fff; }
 	::selection { background: #3BAFDA; color: #fff; }
 
 	a {
+		color: #F5F7FA;
 		text-decoration: none;
 	}
 
 	a:hover, a:active {
+		color: #3BAFDA;
 		outline: none;
 		text-decoration: underline;
 	}
@@ -41,13 +49,37 @@
 	}
 
 	.container {
+		max-width: 650px;
 		padding: 8px 20px 15px;
+	}
+	
+	.titles, .contacts {
+		-webkit-animation-name: fade;
+		animation-name: fade;
+		-webkit-animation-fill-mode: both;
+		animation-fill-mode: both;
+		-webkit-animation-delay: 0.2s;
+		animation-delay: 0.2s;
+		-webkit-animation-duration: 0.3s;
+		animation-duration: 0.3s;
+	}
+	
+	.contacts {
+		margin-top: 3em;
+		-webkit-animation-delay: 0.4s;
+		animation-delay: 0.4s;
+	}
+	
+	.left-half, .right-half {
+		text-align: left;
+		width: 50%;
+		float: left;
+		padding-left: 30px;
 	}
 
 	h1, h2 {
 		font-family: "Roboto Slab", Helvetica, Arial, sans-serif;
 		margin: 0;
-		color: #FFF;
 		font-weight: 400;
 		font-size: 6em;
 	}
@@ -56,63 +88,26 @@
 		font-size: 2em;
 	}
 
-	.social {
-		margin: 35px 0;
-	}
-
-	.social a {
-		border: 3px solid #3BAFDA;
-		border-color: rgba(59, 175, 218, 0.65);
-		border-radius: 35px;
-		margin: 0 3px;
-		width: 26px;
-		height: 26px;
-		padding: 16px;
-		display: inline-block;
-		transition: box-shadow 0.4s ease-in-out;
-	}
-
-	.social a:hover,
-	.social a:focus {
-		outline: none;
-		box-shadow: inset 0 0 0 10px rgba(59, 175, 218, 0.4), inset 0 0 0 32px rgba(59, 175, 218, 0.8);
-	}
-
-	.icon {
-		width: 26px;
-		height: 26px;
-	}
-
-	.icon > path {
-		fill: #FFF;
+	h3 {
+		font-weight: normal;
 	}
 
 	.links {
+		list-style: circle;
 		font-size: 16px;
-		color: #333;
+		padding: 0;
+		padding-left: 20px;
 	}
 
-	.links a {
-		display: inline-block;
-		padding: 0 5px;
-		color: #F5F7FA;
+	.links li {
+		margin-bottom: .6em;
 	}
-
-	.links a:hover {
-		color: #3BAFDA;
+	
+	.links p {
+		margin: .6em 0 0 .5em;
 	}
-
-	@media (max-width: 660px) {
-		body {
-			font-size: 12px;
-		}
-	}
-
-	@media (max-width: 500px) {
-		body {
-			font-size: 9px;
-		}
-		
+	
+	@media (max-width: 700px) {
 		.do-you-even-flexbox {
 			display: none;
 		}
@@ -121,15 +116,77 @@
 			margin: 0 auto;
 			margin-top: 4%;
 		}
+	}
+
+	@media (max-width: 660px) {
+		h1 {
+			font-size: 5em;
+		}
 		
-		.links a {
-			display: block;
+		h2 {
+			font-size: 1.7em;
+		}
+		
+		.left-half, .right-half {
+			float: none;
+			width: 100%;
+		}
+	}
+
+	@media (max-width: 600px) {
+		.left-half, .right-half {
+			float: none;
+			width: 100%;
+		}
+	}
+
+	@media (max-width: 550px) {
+		h1 {
+			font-size: 4em;
+		}
+		
+		h2 {
+			font-size: 1.6em;
 		}
 	}
 	
-	@media (max-width: 390px) {
+	@media (max-width: 450px) {
 		h1 {
-			font-size: 5em;
+			font-size: 3em;
+		}
+	}
+	
+	@media (max-width: 360px) {
+		h1 {
+			font-size: 2.5em;
+		}
+	}
+	
+	@-webkit-keyframes fade {
+		0% {
+			opacity: 0;
+			-webkit-transform: translateY(20px);
+		}
+		
+		100% {
+			opacity: 1;
+			-webkit-transform: translateY();
+		}
+	}
+	
+	@keyframes fade {
+		0% {
+			opacity: 0;
+			-webkit-transform: translateY(20px);
+			-ms-transform: translateY(20px);
+			transform: translateY(20px);
+		}
+		
+		100% {
+			opacity: 1;
+			-webkit-transform: translateY();
+			-ms-transform: translateY();
+			transform: translateY();
 		}
 		
 		.social a {
@@ -149,45 +206,51 @@
 	<i class="do-you-even-flexbox"></i>
 	
 	<div class="container">
-		<h1>Hi, I'm Pavel.</h1>
-		<h2>I build web apps and game plugins.</h2>
-		
-		<!-- Icons by icons8.com -->
-		<div class="social">
-			<a href="mailto:hello@xpaw.me">
-				<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 50 50" class="icon">
-					<path d="M44.2 7.7H5.8C2.5 7.7 0 10.2 0 13.5v23.1c0 3.3 2.5 5.8 5.8 5.8h38.5c3.3 0 5.8-2.5 5.8-5.8V13.5 C50 10.2 47.5 7.7 44.2 7.7z M33.7 24.8L46 37.5L31 26.7l-6 3.8l-6-3.8L4 37.5l12.3-12.7L1.5 13.3L25 25.8l23.5-12.7L33.7 24.8z">
-				</svg>
-			</a>
-			<a href="https://twitter.com/thexpaw">
-				<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 50 50" class="icon">
-					<path d="M44.6 16c0 0.4 0 1 0 1.3C44.6 30.6 34.4 46 16 46c-5.8 0-11-1.7-15.4-4.6c0.8 0 1.5 0.2 2.5 0.2 c4.8 0 9-1.5 12.5-4.2c-4.4 0-8.1-3.1-9.4-6.9c0.6 0.2 1.2 0.2 1.9 0.2c1 0 1.7-0.2 2.7-0.4c-4.6-1-8.1-5-8.1-9.8c0 0 0 0 0-0.2 C4 21 5.6 21.3 7.3 21.5c-2.7-1.7-4.4-4.8-4.4-8.5c0-1.9 0.6-3.7 1.3-5c5 6.2 12.5 10.2 20.8 10.6c-0.2-0.8-0.2-1.5-0.2-2.3 c0-5.6 4.6-10 10.2-10c2.9 0 5.6 1.2 7.3 3.3c2.3-0.4 4.4-1.3 6.3-2.5c-0.8 2.3-2.3 4.4-4.4 5.6c2.1-0.2 4-0.8 5.8-1.5 C48.5 12.7 46.7 14.6 44.6 16z">
-				</svg>
-			</a>
-			<a href="https://github.com/xPaw">
-				<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 50 50" class="icon">
-					<path d="M25 0.4C11.3 0.4 0.4 11.3 0.4 25s11 24.6 24.6 24.6s24.6-11 24.6-24.6S38.7 0.4 25 0.4z M25 4.2 c11.5 0 20.8 9.2 20.8 20.8c0 1 0 1.7-0.2 2.7c-0.6-0.2-1.7-0.4-2.9-0.4c-1 0-2.3 0.2-3.3 0.4c0.2-0.8 0.4-1.5 0.4-2.5 c0-2.1-0.8-4.2-2.3-6.2c0.6-1.7 1.3-5.6-0.2-7.1c-3.5 0-5.4 2.1-6 2.9c-1.7-0.6-3.5-1-5.4-1s-3.7 0.4-5.2 1c-0.6-0.8-2.7-2.7-6-2.7 c-1.5 1.2-0.8 4.8-0.2 6.7c-1.5 1.9-2.3 4-2.3 6.2c0 0.8 0.2 1.7 0.4 2.5c-1 0-3.3-0.4-4.2-0.4s-2.7 0.2-3.8 0.6 c-0.2-1-0.2-1.7-0.2-2.7C4.2 13.5 13.5 4.2 25 4.2z M45.4 28.7c-0.4-0.2-1.9-0.6-3.3-0.6c-0.8 0-1.9 0-2.9 0.2c0-0.2 0-0.2 0.2-0.4 c0.8-0.2 2.3-0.4 3.3-0.4c0 0 0 0 0.2 0c1.2 0 2.3 0.2 2.9 0.4C45.6 28.3 45.6 28.5 45.4 28.7z M30.8 45c-0.6 0.2-1.3 0.4-1.9 0.4 v-2.9c0-0.6 0.4-1 1-1s1 0.4 1 1V45z M23.1 45.8c-0.6 0-1.3-0.2-1.9-0.2v-2.9c0-0.6 0.4-1 1-1s1 0.4 1 1V45.8z M4.4 28.1 c1-0.2 2.7-0.6 3.7-0.6s3.7 0.2 4.4 0.4c0 0.2 0.2 0.4 0.2 0.6c-1.2 0-3.5-0.2-4.6 0c-1.5 0.2-2.9 0.8-3.5 1.2 C4.6 29 4.6 28.7 4.4 28.1z M4.8 30c0.6-0.2 1.9-1 3.5-1.2c1.2-0.2 3.7 0 4.6 0c1.3 3.1 4.4 5.2 9.2 5.8c-0.6 0.4-1.2 1-1.5 1.7l0 0 c-1 1.2-2.9 1.2-4.4 1.2c-1.7 0-2.7-1.3-3.7-2.5c-1-1.2-2.1-1.3-2.7-1.3S9 33.8 9.2 34.2c1.9 1.3 2.5 2.9 3.3 4.2 c0.8 1.3 2.1 1.9 3.7 1.9c0.4 0 2.1 0 2.9 0c0 0.2 0 0.4 0 0.6v4C12.1 42.9 6.5 37.1 4.8 30z M25 41.3c0-0.6 0.4-1 1-1s1 0.4 1 1 v4.4c-0.6 0-1.3 0.2-1.9 0.2V41.3z M32.7 44.2V41c0-2.1-1.2-4.8-3.1-6.2c5-0.8 8.1-2.9 9.4-6c1 0 2.3-0.2 3.1-0.2 c1.3 0 2.9 0.4 3.3 0.6C44 36.2 39 41.7 32.7 44.2z">
-				</svg>
-			</a>
-			<a href="https://steamcommunity.com/id/xpaw">
-				<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 50 50" class="icon">
-					<path d="M21.2 34.6c0-1.7-1.2-3.3-2.9-3.7l0 0l0 0c0 0 0 0-0.2 0l-5-1.3c1.2-1 2.5-1.5 4.2-1.5 c3.7 0 6.5 2.9 6.5 6.7s-2.9 6.5-6.5 6.5c-2.9 0-5.4-1.9-6.2-4.4l5.2 1.5l0 0c0.2-0.2 0.6 0 1 0C19.4 38.5 21.2 36.7 21.2 34.6z M40.6 0H9.4C4.2 0 0 4.2 0 9.4v16.3l9.8 2.9c1.7-2.3 4.4-3.8 7.5-3.8c0.2 0 0.2 0 0.2 0l5.4-7.5v-0.2c0-6.3 5.2-11.7 11.7-11.7 s11.7 5.2 11.7 11.7c0 6.3-5.2 11.7-11.7 11.7h-0.2l-7.5 5.4c0 0.2 0 0.2 0 0.4c0 5.4-4.4 9.8-9.8 9.8c-5 0-9-3.8-9.6-8.7l-7.7-2.3 v7.1C0 45.8 4.2 50 9.4 50h31.2c5.2 0 9.4-4.2 9.4-9.4V9.4C50 4.2 45.8 0 40.6 0z M26.5 17.3c0-4.4 3.7-8.1 8.1-8.1s8.1 3.7 8.1 8.1 s-3.7 8.1-8.1 8.1S26.5 21.7 26.5 17.3z M29 17.3c0 3.1 2.5 5.6 5.6 5.6s5.6-2.5 5.6-5.6s-2.5-5.6-5.6-5.6S29 14.2 29 17.3z">
-				</svg>
-			</a>
-			<a href="http://www.reddit.com/user/xPaw/">
-				<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 50 50" class="icon">
-					<path d="M36.2 28.8c0 1.9-1.5 3.5-3.5 3.5s-3.5-1.5-3.5-3.5s1.5-3.5 3.5-3.5S36.2 26.9 36.2 28.8z M20.8 28.8 c0-1.9-1.5-3.5-3.5-3.5s-3.5 1.5-3.5 3.5s1.5 3.5 3.5 3.5S20.8 30.8 20.8 28.8z M15.4 37.3c1.2 2.5 5 5 9.6 5s8.3-2.5 9.6-5 c-2.3 1.3-5.8 2.3-9.6 2.3S17.7 38.7 15.4 37.3z M36.9 9.6c0-3.1 2.5-5.4 5.4-5.4c2.9 0 5.4 2.5 5.4 5.4S45.4 15 42.3 15 S36.9 12.7 36.9 9.6z M38.8 9.6c0 1.9 1.5 3.5 3.5 3.5s3.5-1.5 3.5-3.5s-1.5-3.5-3.5-3.5S38.8 7.7 38.8 9.6z M49.6 24.8 c-0.2 1.7-1 3.3-2.3 4.4c0.2 0.8 0.4 1.5 0.4 2.5c0 8.8-10.2 16-22.7 16s-22.7-7.1-22.7-16c0-0.8 0.2-1.7 0.4-2.5 c-1.2-1.2-2.1-2.7-2.3-4.4c-0.2-1.9 0.4-3.8 1.5-5.2s2.9-2.1 4.8-2.1c1.7 0 3.3 0.6 4.4 1.5c3.5-1.7 7.5-2.9 11.9-3.3 c0-4.2 0.8-11.9 6.7-11.9c2.9 0 4.4 1.7 5.4 2.7c0.8 1 1 1.2 1.3 1.2v3.8c-2.3 0-3.5-1.3-4.4-2.5c-0.8-1-1.2-1.3-2.3-1.3 s-2.7 1.5-2.9 8.1c4.4 0.2 8.5 1.3 11.9 3.3c1.3-1 2.9-1.5 4.4-1.5l0 0c1.9 0 3.7 0.8 4.8 2.1C49.2 21 49.8 22.9 49.6 24.8z M3.8 26 c1-1.9 2.5-3.7 4.4-5c-0.6-0.2-1.2-0.4-1.5-0.4c-1 0-1.9 0.4-2.5 1.2c-0.6 0.8-1 1.7-0.8 2.9C3.5 25 3.7 25.4 3.8 26z M44.6 31.7 c0-6.9-9-12.9-19.6-12.9s-19.6 6-19.6 12.9s9 12.9 19.6 12.9S44.6 38.7 44.6 31.7z M46.2 26c0.2-0.4 0.4-1 0.4-1.5 c0.2-1.2-0.2-2.1-0.8-2.9c-0.6-0.8-1.5-1.2-2.5-1.2c-0.6 0-1.2 0.2-1.5 0.4C43.7 22.3 45.2 24 46.2 26z">
-				</svg>
-			</a>
+		<div class="titles">
+			<h1>Hi, I'm Pavel.</h1>
+			<h2>I build and break web applications.</h2>
 		</div>
 		
-		<div class="links">
-			<a href="http://steamdb.info">Steam Database</a> •
-			<a href="http://steamstat.us">Steam Status</a> •
-			<a href="http://xpaw.ru/mcstatus/">Minecraft Status</a>
+		<div class="contacts">
+			<div class="left-half">
+				<h3>Contants &amp; Profiles</h3>
+				
+				<ul class="links">
+					<li><a href="mailto:hello@xpaw.me">hello@xpaw.me</a></li>
+					<li><a href="https://twitter.com/thexpaw">Twitter</a></li>
+					<li><a href="https://github.com/xPaw">GitHub</a></li>
+					<li><a href="https://steamcommunity.com/id/xpaw">Steam</a></li>
+					<li><a href="https://www.reddit.com/user/xPaw/">Reddit</a></li>
+					<li><a href="https://keybase.io/xpaw">Keybase</a></li>
+					<li>xPaw on Freenode</li>
+				</ul>
+			</div>
+			
+			<div class="right-half">
+				<h3>My current projects</h3>
+				
+				<ul class="links">
+					<li>
+						<a href="https://steamdb.info/">Steam Database</a>
+						<p>
+							This tool was made to give better insight into the Steam database.
+						</p>
+					</li>
+					<li>
+						<a href="https://steamstat.us/">Steam Status</a>
+						<p>
+							Displays status of Steam related services.
+						</p>
+					</li>
+					<li>
+						<a href="http://xpaw.ru/mcstatus/">Minecraft Status</a>
+						<p>
+							Displays status of Mojang's Minecraft related services.
+						</p>
+					</li>
+				</ul>
+			</div>
 		</div>
 	</div>
-	
-	<script>(function(){function c(b){a+=b.keyCode;20<a.length&&(a=a.substr(a.length-20));if("38384040373937396665"===a)return document.removeEventListener("keydown",c,!1),b.preventDefault(),b=document.querySelector("h2"),b.textContent=b.textContent.replace(" and",",").replace(".",", and \x73\x74\x61\x6C\x6B \x63\x6F\x72\x70\x6F\x72\x61\x74\x69\x6F\x6E\x73."),!1}var a="";document.addEventListener("keydown",c,!1)})();</script>
 </body>
 </html>
