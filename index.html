@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 
-	<title>xPaw</title>
+	<title>xPaw · Pavel Djundik</title>
 
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab|Roboto">
 	<style>
@@ -14,9 +14,7 @@
 	}
 
 	html,
-	body,
-	.do-you-even-flexbox,
-	.wrapper {
+	body {
 		height: 100%;
 	}
 
@@ -24,13 +22,31 @@
 		margin: 0;
 		color: #FFF;
 		font: normal 16px/1.2 "Roboto", Helvetica, Arial, sans-serif;
-		text-align: center;
 		text-shadow: 1px 1px #000;
-		background: #D9D6CA url('bg.jpg') no-repeat center center fixed;
+		background: #D9D6CA url('bg.jpg') no-repeat center bottom fixed;
 		background-size: cover;
 	}
 
-	::-moz-selection { background: #0277BD; color: #fff; text-shadow: none; }
+	.wrapper {
+		background-color: rgba(25, 52, 81, 0.5);
+		min-height: 100%;
+		display: -ms-flexbox;
+	    display: -webkit-flex;
+	    display: flex;
+	    -webkit-flex-direction: row;
+	    -ms-flex-direction: row;
+	    flex-direction: row;
+	    -webkit-flex-wrap: wrap;
+	    -ms-flex-wrap: wrap;
+	    flex-wrap: wrap;
+	    -webkit-justify-content: center;
+	    -ms-flex-pack: center;
+	    justify-content: center;
+	    -webkit-align-content: center;
+	    -ms-flex-line-pack: center;
+	    align-content: center;
+	}
+
 	::selection {
 		background-color: #0288D1;
 		color: #FFF;
@@ -52,45 +68,34 @@
 		outline: thin dotted;
 	}
 
-	.wrapper {
-		background-image: linear-gradient(rgba(34, 34, 34, 0.5), rgba(0, 0, 0, 0));
+	.titles {
+		text-align: center;
+		width: 100%;
+		margin-bottom: 50px;
 	}
 
-	.do-you-even-flexbox,
-	.container {
-		display: inline-block;
-		vertical-align: middle;
+	.contacts,
+	.projects {
+		padding-bottom: 2em;
+		padding-left: 2em;
+		width: 18em;
+		-webkit-flex: 0 1 auto;
+		-ms-flex: 0 1 auto;
+		flex: 0 1 auto;
+		-webkit-align-self: auto;
+		-ms-flex-item-align: auto;
+		align-self: auto;
+		-webkit-animation-delay: 0.2s;
+		animation-delay: 0.2s;
 	}
 
-	.container {
-		max-width: 650px;
-		padding: 8px 20px 15px;
-	}
-
-	.titles,
-	.contacts {
+	.animate {
 		-webkit-animation-name: fade;
 		animation-name: fade;
 		-webkit-animation-fill-mode: both;
 		animation-fill-mode: both;
-		-webkit-animation-delay: 0.2s;
-		animation-delay: 0.2s;
 		-webkit-animation-duration: 0.3s;
 		animation-duration: 0.3s;
-	}
-
-	.contacts {
-		margin-top: 3em;
-		-webkit-animation-delay: 0.4s;
-		animation-delay: 0.4s;
-	}
-
-	.left-half,
-	.right-half {
-		text-align: left;
-		width: 50%;
-		float: left;
-		padding-left: 30px;
 	}
 
 	h1,
@@ -114,25 +119,77 @@
 		font-size: 16px;
 		padding: 0;
 		padding-left: 20px;
+		margin-bottom: 0;
 	}
 
 	.links li {
 		margin-bottom: .6em;
 	}
 
-	.links p {
-		margin: .6em 0 0 .5em;
+	.links li:last-child {
+		margin-bottom: 0;
 	}
 
-	@media (max-width: 700px) {
-		.do-you-even-flexbox {
-			display: none;
-		}
+	.links p {
+		margin: .6em 0 0 .5em;
+		color: #AAA;
+	}
 
-		.container {
-			margin: 0 auto;
-			margin-top: 4%;
-		}
+	.button {
+		position: fixed;
+		right: 23px;
+		bottom: 23px;
+		display: block;
+		border-radius: 50%;
+		font-size: 24px;
+		height: 56px;
+		min-width: 56px;
+		width: 56px;
+		background: #0288D1;
+		transition: background-color .2s cubic-bezier(.4,0,.2,1);
+	}
+
+	.button:before {
+		opacity: 0;
+		z-index: 999;
+		background: rgba(97, 97, 97, 0.9);
+		border-radius: 2px;
+		color: #FFF;
+		width: 80px;
+		padding: 8px;
+		text-align: center;
+		text-shadow: none;
+		content: 'Email me';
+		font-size: 14px;
+		position: absolute;
+		top: -40px;
+		left: -12px;
+		transition: opacity .2s cubic-bezier(.4,0,.2,1);
+	}
+
+	.button:focus,
+	.button:hover {
+		text-decoration: none;
+		outline: none;
+		background-color: #039BE5;
+	}
+
+	.button:focus:before,
+	.button:hover:before {
+		opacity: 1;
+	}
+
+	.button:active {
+		background-color: #03A9F4;
+	}
+
+	.button svg {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		-webkit-transform: translate(-12px,-12px);
+		-ms-transform: translate(-12px,-12px);
+		transform: translate(-12px,-12px);
 	}
 
 	@media (max-width: 660px) {
@@ -144,16 +201,23 @@
 			font-size: 1.7em;
 		}
 
-		.left-half, .right-half {
-			float: none;
-			width: 100%;
+		.contacts,
+		.projects {
+			width: auto;
 		}
+
+
 	}
 
 	@media (max-width: 600px) {
-		.left-half, .right-half {
-			float: none;
-			width: 100%;
+		.titles {
+			padding-top: 1em;
+			padding-left: 2em;
+			text-align: left;
+		}
+
+		.wrapper {
+			display: block;
 		}
 	}
 
@@ -175,7 +239,11 @@
 
 	@media (max-width: 360px) {
 		h1 {
-			font-size: 2.5em;
+			font-size: 2.35em;
+		}
+
+		.button {
+			display: none;
 		}
 	}
 
@@ -216,62 +284,55 @@
 </head>
 <body>
 	<div class="wrapper">
-		<i class="do-you-even-flexbox"></i>
+		<div class="titles animate">
+			<h1>Pavel Djundik</h1>
+			<h2>I build and break web applications.</h2>
+		</div>
 
-		<div class="container">
-			<div class="titles">
-				<h1>Pavel Djundik</h1>
-				<h2>I build and break web applications.</h2>
-			</div>
+		<div class="contacts animate">
+			<h3>Contacts &amp; Profiles</h3>
 
-			<div class="contacts">
-				<div class="left-half">
-					<h3>Contacts &amp; Profiles</h3>
+			<ul class="links">
+				<li><a href="mailto:hello@xpaw.me">hello@xpaw.me</a></li>
+				<li><a href="https://twitter.com/thexpaw" rel="me">Twitter</a></li>
+				<li><a href="https://github.com/xPaw" rel="me">GitHub</a></li>
+				<li><a href="https://steamcommunity.com/id/xpaw" rel="me">Steam</a></li>
+				<li><a href="https://www.reddit.com/user/xPaw/" rel="me">Reddit</a></li>
+				<li><a href="https://keybase.io/xpaw" rel="me">Keybase</a></li>
+				<li><a href="https://plus.google.com/+thexpaw" rel="me author">Google+</a></li>
+				<li>xPaw on <a href="https://freenode.net/">freenode</a></li>
+			</ul>
+		</div>
 
-					<ul class="links">
-						<li><a href="mailto:hello@xpaw.me">hello@xpaw.me</a></li>
-						<li><a href="https://twitter.com/thexpaw" rel="me">Twitter</a></li>
-						<li><a href="https://github.com/xPaw" rel="me">GitHub</a></li>
-						<li><a href="https://steamcommunity.com/id/xpaw" rel="me">Steam</a></li>
-						<li><a href="https://www.reddit.com/user/xPaw/" rel="me">Reddit</a></li>
-						<li><a href="https://keybase.io/xpaw" rel="me">Keybase</a></li>
-						<li><a href="https://plus.google.com/+thexpaw" rel="me author">Google+</a></li>
-						<li>xPaw on <a href="https://freenode.net/">freenode</a></li>
-					</ul>
-				</div>
+		<div class="projects animate">
+			<h3>My current projects</h3>
 
-				<div class="right-half">
-					<h3>My current projects</h3>
-
-					<ul class="links">
-						<li>
-							<a href="https://steamdb.info/">Steam Database</a>
-							<p>
-								This tool was made to give better insight into the Steam database.
-							</p>
-						</li>
-						<li>
-							<a href="https://steamstat.us/">Steam Status</a>
-							<p>
-								Displays status of Steam related services.
-							</p>
-						</li>
-						<li>
-							<a href="http://xpaw.ru/mcstatus/">Minecraft Status</a>
-							<p>
-								Displays status of Mojang's Minecraft related services.
-							</p>
-						</li>
-						<li>
-							<a href="https://lab.xpaw.me/steam_api_documentation.html">Steam WebAPI Tester</a>
-							<p>
-								Lists all available methods and has an ability to construct a url using a form.
-							</p>
-						</li>
-					</ul>
-				</div>
-			</div>
+			<ul class="links">
+				<li>
+					<a href="https://steamdb.info/">Steam Database</a>
+					<p>Better Steam insights.</p>
+				</li>
+				<li>
+					<a href="https://steamstat.us/">Steam Status</a>
+					<p>Steam related services status.</p>
+				</li>
+				<li>
+					<a href="http://xpaw.ru/mcstatus/">Minecraft Status</a>
+					<p>Minecraft related services status.</p>
+				</li>
+				<li>
+					<a href="https://lab.xpaw.me/steam_api_documentation.html">Steam WebAPI Tester</a>
+					<p>Lists available end points.</p>
+				</li>
+			</ul>
 		</div>
 	</div>
+
+	<a class="button" href="mailto:hello@xpaw.me">
+		<svg fill="#FFF" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+			<path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/>
+			<path d="M0 0h24v24H0z" fill="none"/>
+		</svg>
+	</a>
 </body>
 </html>
