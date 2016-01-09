@@ -2,337 +2,123 @@
 <html>
 <head>
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="theme-color" content="#1793D1">
 
 	<title>xPaw · Pavel Djundik</title>
 
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab|Roboto">
+	<link rel="apple-touch-icon" sizes="128x128" href="favicon.png">
+	<link rel="icon" type="image/png" href="favicon.png" sizes="128x128">
+	<link rel="image_src" href="https://secure.gravatar.com/avatar/f9c6903a50d1d861a47a614862b00b89.png?s=375">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
 	<style>
-	*,
-	*:before,
-	*:after {
-		box-sizing: border-box;
-	}
-
-	html,
 	body {
-		height: 100%;
-	}
-
-	body {
-		margin: 0;
+		margin: 2em;
 		color: #FFF;
-		font: normal 16px/1.2 "Roboto", Helvetica, Arial, sans-serif;
-		text-shadow: 1px 1px #000;
-		background: #D9D6CA url('bg.jpg') no-repeat center bottom;
-		background-size: cover;
-	}
-
-	.wrapper {
-		background-color: rgba(25, 52, 81, 0.5);
-		min-height: 100%;
-		display: -ms-flexbox;
-		display: -webkit-flex;
-		display: flex;
-		-webkit-flex-direction: row;
-		-ms-flex-direction: row;
-		flex-direction: row;
-		-webkit-flex-wrap: wrap;
-		-ms-flex-wrap: wrap;
-		flex-wrap: wrap;
-		-webkit-justify-content: center;
-		-ms-flex-pack: center;
-		justify-content: center;
-		-webkit-align-content: center;
-		-ms-flex-line-pack: center;
-		align-content: center;
+		font: normal 16px/1.2 'Open Sans', Helvetica, Arial, sans-serif;
+		background-color: #000;
 	}
 
 	::selection {
-		background-color: #0288D1;
+		background-color: #1793D1;
 		color: #FFF;
 		text-shadow: none;
 	}
 
+	h1, h2, h3 {
+		font-weight: 400;
+	}
+	
+	h1 {
+		font-size: 3em;
+		margin: 0;
+	}
+	
+	h2 {
+		font-size: 1.5em;
+		margin-top: 0;
+	}
+	
+	h3 {
+		margin-top: 3em;
+		margin-bottom: 0;
+	}
+	
+	ul {
+		list-style-type: none;
+		padding: 0;
+		margin-top: .5em;
+	}
+	
+	.stuff,
+	.stuff a {
+		color: #999;
+	}
+	
+	.stuff .muted {
+		color: #333;
+	}
+
 	a {
-		color: #F5F7FA;
 		text-decoration: none;
 	}
 
-	a:hover, a:active {
-		color: #3BAFDA;
+	a:hover,
+	a:focus {
+		color: #FFF;
 		outline: none;
 		text-decoration: underline;
 	}
 
-	a:focus {
-		outline: thin dotted;
-	}
-
-	.titles {
-		text-align: center;
-		width: 100%;
-		margin-bottom: 50px;
-	}
-
-	.contacts,
-	.projects {
-		padding-bottom: 2em;
-		padding-left: 2em;
-		width: 18em;
-		-webkit-flex: 0 1 auto;
-		-ms-flex: 0 1 auto;
-		flex: 0 1 auto;
-		-webkit-align-self: auto;
-		-ms-flex-item-align: auto;
-		align-self: auto;
-		-webkit-animation-delay: 0.2s;
-		animation-delay: 0.2s;
-	}
-
-	.animate {
-		-webkit-animation-name: fade;
-		animation-name: fade;
-		-webkit-animation-fill-mode: both;
-		animation-fill-mode: both;
-		-webkit-animation-duration: 0.3s;
-		animation-duration: 0.3s;
-	}
-
-	h1,
-	h2 {
-		font-family: "Roboto Slab", Helvetica, Arial, sans-serif;
-		margin: 0;
-		font-weight: 400;
-		font-size: 5.5em;
-	}
-
-	h2 {
-		font-size: 2em;
-	}
-
-	h3 {
-		font-weight: normal;
-	}
-
-	.links {
-		list-style: circle;
-		font-size: 16px;
-		padding: 0;
-		padding-left: 20px;
-		margin-bottom: 0;
-	}
-
-	.links li {
-		margin-bottom: .6em;
-	}
-
-	.links li:last-child {
-		margin-bottom: 0;
-	}
-
-	.links p {
-		margin: .6em 0 0 .5em;
-		color: #AAA;
-	}
-
-	.button {
-		position: fixed;
-		right: 23px;
-		bottom: 23px;
-		display: block;
-		border-radius: 50%;
-		font-size: 24px;
-		height: 56px;
-		min-width: 56px;
-		width: 56px;
-		background: #0288D1;
-		transition: background-color .2s cubic-bezier(.4,0,.2,1);
-	}
-
-	.button:before {
-		opacity: 0;
-		z-index: 999;
-		background: rgba(97, 97, 97, 0.9);
-		border-radius: 2px;
+	a:hover .muted,
+	a:focus .muted {
 		color: #FFF;
-		width: 80px;
-		padding: 8px;
-		text-align: center;
-		text-shadow: none;
-		content: 'Email me';
-		font-size: 14px;
-		position: absolute;
-		top: -40px;
-		left: -12px;
-		transition: opacity .2s cubic-bezier(.4,0,.2,1);
 	}
 
-	.button:focus,
-	.button:hover {
-		text-decoration: none;
-		outline: none;
-		background-color: #039BE5;
-	}
-
-	.button:focus:before,
-	.button:hover:before {
-		opacity: 1;
-	}
-
-	.button:active {
-		background-color: #03A9F4;
-	}
-
-	.button svg {
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		-webkit-transform: translate(-12px,-12px);
-		-ms-transform: translate(-12px,-12px);
-		transform: translate(-12px,-12px);
-	}
-
-	@media (max-width: 660px) {
-		h1 {
-			font-size: 4.5em;
-		}
-
-		h2 {
-			font-size: 1.7em;
-		}
-
-		.contacts,
-		.projects {
-			width: auto;
-		}
-
-
-	}
-
-	@media (max-width: 600px) {
-		.titles {
-			padding-top: 1em;
-			padding-left: 2em;
-			text-align: left;
-		}
-
-		.wrapper {
-			display: block;
-		}
-	}
-
-	@media (max-width: 550px) {
-		h1 {
-			font-size: 3.5em;
-		}
-
+	@media (max-width: 460px) {
 		h2 {
 			font-size: 1em;
-		}
+		}	
 	}
 
-	@media (max-width: 450px) {
+	@media (max-width: 380px) {
 		h1 {
-			font-size: 2.5em;
-		}
-	}
-
-	@media (max-width: 360px) {
-		h1 {
-			font-size: 2.35em;
-		}
-
-		.button {
-			display: none;
-		}
-	}
-
-	@-webkit-keyframes fade {
-		0% {
-			opacity: 0;
-			-webkit-transform: translateY(20px);
-		}
-
-		100% {
-			opacity: 1;
-			-webkit-transform: translateY();
-		}
-	}
-
-	@keyframes fade {
-		0% {
-			opacity: 0;
-			-webkit-transform: translateY(20px);
-			-ms-transform: translateY(20px);
-			transform: translateY(20px);
-		}
-
-		100% {
-			opacity: 1;
-			-webkit-transform: translateY();
-			-ms-transform: translateY();
-			transform: translateY();
+			font-size: 2em;
 		}
 	}
 	</style>
-
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="xPaw's Personal Website">
-	<meta name="theme-color" content="#0288D1">
-
-	<link rel="image_src" href="https://secure.gravatar.com/avatar/f9c6903a50d1d861a47a614862b00b89.png?s=375">
 </head>
 <body>
 	<div class="wrapper">
-		<div class="titles animate">
+		<div class="titles">
 			<h1>Pavel Djundik</h1>
-			<h2>I build and break web applications.</h2>
+			<h2>I build and break web applications</h2>
 		</div>
 
-		<div class="contacts animate">
+		<div class="stuff">
 			<h3>Contacts &amp; Profiles</h3>
 
-			<ul class="links">
+			<ul>
 				<li><a href="mailto:hello@xpaw.me">hello@xpaw.me</a></li>
-				<li><a href="https://twitter.com/thexpaw" rel="me">Twitter</a></li>
-				<li><a href="https://github.com/xPaw" rel="me">GitHub</a></li>
-				<li><a href="https://steamcommunity.com/id/xpaw" rel="me">Steam</a></li>
-				<li><a href="https://www.reddit.com/user/xPaw/" rel="me">Reddit</a></li>
-				<li><a href="https://keybase.io/xpaw" rel="me">Keybase</a></li>
-				<li><a href="https://plus.google.com/+thexpaw" rel="me author">Google+</a></li>
-				<li>xPaw on <a href="https://freenode.net/">freenode</a></li>
+				<li><a href="https://twitter.com/thexpaw" rel="me">Twitter<span class="muted">: @thexpaw</span></a></li>
+				<li><a href="https://github.com/xPaw" rel="me">GitHub<span class="muted">: @xPaw</span></a></li>
+				<li><a href="https://steamcommunity.com/id/xpaw" rel="me">Steam<span class="muted">: /id/xPaw</span></a></li>
+				<li><a href="https://www.reddit.com/user/xPaw/" rel="me">Reddit<span class="muted">: /u/xPaw</span></a></li>
+				<li><a href="https://keybase.io/xpaw" rel="me">Keybase<span class="muted">: @xPaw</span></a></li>
+				<li><a href="https://plus.google.com/+thexpaw" rel="me author">Google+<span class="muted">: +thexpaw</span></a></li>
+				<li>xPaw on <a href="https://freenode.net/" rel="nofollow">freenode</a></li>
 			</ul>
-		</div>
 
-		<div class="projects animate">
 			<h3>My current projects</h3>
 
-			<ul class="links">
-				<li>
-					<a href="https://steamdb.info/">Steam Database</a>
-					<p>Better Steam insights.</p>
-				</li>
-				<li>
-					<a href="https://steamstat.us/">Steam Status</a>
-					<p>Steam related services status.</p>
-				</li>
-				<li>
-					<a href="http://xpaw.ru/mcstatus/">Minecraft Status</a>
-					<p>Minecraft related services status.</p>
-				</li>
-				<li>
-					<a href="https://lab.xpaw.me/steam_api_documentation.html">Steam WebAPI Tester</a>
-					<p>Lists available end points.</p>
-				</li>
+			<ul>
+				<li><a href="https://steamdb.info/">Steam Database</a></li>
+				<li><a href="https://steamstat.us/">Steam Status</a></li>
+				<li><a href="http://xpaw.ru/mcstatus/">Minecraft Status</a></li>
+				<li><a href="https://lab.xpaw.me/steam_api_documentation.html">Steam WebAPI Tester</a></li>
+				<li><a href="https://lab.xpaw.me/">Lab with smaller projects</a></li>
 			</ul>
 		</div>
 	</div>
-
-	<a class="button" href="mailto:hello@xpaw.me">
-		<svg fill="#FFF" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-			<path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/>
-			<path d="M0 0h24v24H0z" fill="none"/>
-		</svg>
-	</a>
 </body>
 </html>
