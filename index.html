@@ -15,7 +15,7 @@
 	body {
 		margin: 2em;
 		color: #FFF;
-		font: normal 16px/1.4 'Open Sans', Helvetica, Arial, sans-serif;
+		font: normal 20px/1.4 'Open Sans', Helvetica, Arial, sans-serif;
 		background: #070707 url(d0g.jpg) center center no-repeat;
 		background-size: cover;
 	}
@@ -29,52 +29,61 @@
 	h1, h2, h3 {
 		font-weight: 400;
 	}
-	
+
 	h1 {
-		font-size: 3em;
+		font-size: 3.4em;
 		margin: 0;
 	}
-	
+
 	h2 {
-		font-size: 1.5em;
-		margin-top: 0;
+		font-size: 1.35em;
+		margin-top: -.4em;
 	}
-	
+
 	h3 {
-		margin-top: 2em;
+		font-size: 1.2em;
+		margin-top: 1.5em;
 		margin-bottom: 0;
 	}
-	
+
 	ul {
 		list-style-type: none;
 		padding: 0;
 		margin-top: .5em;
 		line-height: 1.6em;
 	}
-	
+
 	.stuff,
 	.stuff a {
 		color: #999;
 	}
-	
-	.muted {
-		color: #444;
+
+	.service {
+		display: inline-block;
+		min-width: 6em;
 	}
 
-	a {
+	.muted {
+		color: #444;
+		border-bottom: 2px solid transparent;
+	}
+
+	a,
+	.muted {
 		text-decoration: none;
+		transition: color .2s, border-bottom-color .2s;
 	}
 
 	a:hover,
 	a:focus {
 		color: #FFF;
 		outline: none;
-		text-decoration: underline;
 	}
 
 	a:hover .muted,
 	a:focus .muted {
-		color: #FFF;
+		color: #1793D1;
+		border-bottom-color: #1793D1;
 	}
 
 	.fa {
@@ -84,24 +93,22 @@
 		margin-right: .7em;
 	}
 
-	@media (max-width: 460px) {
+	@media (max-width: 570px) {
 		h2 {
-			font-size: 1em;
-		}	
-	}
+			font-size: 4.6vw;
+		}
 
-	@media (max-width: 380px) {
 		h1 {
-			font-size: 2em;
+			font-size: 11.8vw;
 		}
 	}
 
-	@media (min-height: 640px) and (min-width: 700px) {
+	@media (min-height: 980px) and (min-width: 700px) {
 		body {
 			font-size: 2.5vh;
 		}
 	}
-	
+
 	@media (max-width: 770px) {
 		body {
 			background-position: -100px center;
@@ -125,14 +132,62 @@
 		<h3>Contacts &amp; Profiles</h3>
 
 		<ul>
-			<li><i class="fa fa-envelope"></i><a href="mailto:hello@xpaw.me">hello@xpaw.me</a></li>
-			<li><i class="fa fa-twitter"></i><a href="https://twitter.com/thexpaw" rel="me">Twitter<span class="muted">: @thexpaw</span></a></li>
-			<li><i class="fa fa-github"></i><a href="https://github.com/xPaw" rel="me">GitHub<span class="muted">: @xPaw</span></a></li>
-			<li><i class="fa fa-steam"></i><a href="https://steamcommunity.com/id/xpaw" rel="me">Steam<span class="muted">: /id/xPaw</span></a></li>
-			<li><i class="fa fa-reddit-alien"></i><a href="https://www.reddit.com/user/xPaw/" rel="me">Reddit<span class="muted">: /u/xPaw</span></a></li>
-			<li><i class="fa fa-key"></i><a href="https://keybase.io/xpaw" rel="me">Keybase<span class="muted">: @xPaw</span></a></li>
-			<li><i class="fa fa-google-plus"></i><a href="https://plus.google.com/+thexpaw" rel="me author">Google+<span class="muted">: +thexpaw</span></a></li>
-			<li><i class="fa fa-commenting"></i>xPaw on <a href="https://freenode.net/" rel="nofollow">freenode</a></li>
+			<li>
+				<i class="fa fa-envelope"></i>
+				<a href="mailto:hello@xpaw.me" rel="me">
+					<span class="service">Email</span>
+					<span class="muted">hello@xpaw.me</span>
+				</a>
+			</li>
+			<li>
+				<i class="fa fa-twitter"></i>
+				<a href="https://twitter.com/thexpaw" rel="me">
+					<span class="service">Twitter</span>
+					<span class="muted">@thexpaw</span>
+				</a>
+			</li>
+			<li>
+				<i class="fa fa-github"></i>
+				<a href="https://github.com/xPaw" rel="me">
+					<span class="service">GitHub</span>
+					<span class="muted">@xPaw</span>
+				</a>
+			</li>
+			<li>
+				<i class="fa fa-steam"></i>
+				<a href="https://steamcommunity.com/id/xpaw" rel="me">
+					<span class="service">Steam</span>
+					<span class="muted">/id/xPaw</span>
+				</a>
+			</li>
+			<li>
+				<i class="fa fa-reddit-alien"></i>
+				<a href="https://www.reddit.com/user/xPaw/" rel="me">
+					<span class="service">Reddit</span>
+					<span class="muted">/u/xPaw</span>
+				</a>
+			</li>
+			<li>
+				<i class="fa fa-key"></i>
+				<a href="https://keybase.io/xpaw" rel="me">
+					<span class="service">Keybase</span>
+					<span class="muted">@xPaw</span>
+				</a>
+			</li>
+			<li>
+				<i class="fa fa-google-plus"></i>
+				<a href="https://plus.google.com/+thexpaw" rel="me author">
+					<span class="service">Google+</span>
+					<span class="muted">+thexpaw</span>
+				</a>
+			</li>
+			<li>
+				<i class="fa fa-commenting"></i>
+				<a href="https://freenode.net/" rel="nofollow">
+					<span class="service">freenode</span>
+					<span class="muted">xPaw@steamdb/xpaw</span>
+				</a>
+			</li>
 		</ul>
 
 		<h3>My current projects</h3>
