@@ -60,7 +60,7 @@
 
 	.service {
 		display: inline-block;
-		min-width: 6em;
+		width: 5em;
 	}
 
 	.muted {
@@ -90,7 +90,7 @@
 		width: 1em;
 		display: inline-block;
 		text-align: center;
-		margin-right: .7em;
+		margin-right: .5em;
 	}
 
 	@media (max-width: 570px) {
@@ -114,6 +114,16 @@
 			background-position: -100px center;
 		}
 	}
+	
+	@media (max-width: 360px) {
+		body {
+			background-image: none;
+		}
+
+		.service-email {
+			width: 3em;
+		}
+	}
 	</style>
 
 	<meta name="description" content="Pavel Djundik. I build and break web applications. I created SteamDB and Steam Status.">
@@ -134,9 +144,9 @@
 		<ul>
 			<li>
 				<i class="fa fa-envelope"></i>
-				<a href="mailto:hello@xpaw.me" rel="me">
-					<span class="service">Email</span>
-					<span class="muted">hello@xpaw.me</span>
+				<a href="mailto:yay@xpaw.me" rel="me">
+					<span class="service service-email">Email</span>
+					<span class="muted">yay@xpaw.me</span>
 				</a>
 			</li>
 			<li>
@@ -179,13 +189,6 @@
 				<a href="https://plus.google.com/+thexpaw" rel="me author">
 					<span class="service">Google+</span>
 					<span class="muted">+thexpaw</span>
-				</a>
-			</li>
-			<li>
-				<i class="fa fa-commenting"></i>
-				<a href="https://freenode.net/" rel="nofollow">
-					<span class="service">freenode</span>
-					<span class="muted">xPaw@steamdb/xpaw</span>
 				</a>
 			</li>
 		</ul>
