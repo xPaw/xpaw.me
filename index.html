@@ -12,8 +12,19 @@
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" crossorigin="anonymous">
 	<style>
+	html {
+		box-sizing: border-box;
+		height: 100%;
+	}
+
+	*, *:before, *:after {
+		box-sizing: inherit;
+	}
+
 	body {
-		margin: 2em;
+		height: 100%;
+		margin: 0;
+		padding: 2em;
 		color: #FFF;
 		font: normal 20px/1.4 'Open Sans', Helvetica, Arial, sans-serif;
 		background: #070707 url(d0g.jpg) center center no-repeat;
@@ -101,11 +112,11 @@
 
 	@media (max-width: 570px) {
 		h2 {
-			font-size: 4.6vw;
+			font-size: 4.5vw;
 		}
 
 		h1 {
-			font-size: 11.8vw;
+			font-size: 11.5vw;
 		}
 	}
 
@@ -121,13 +132,13 @@
 		}
 	}
 	
-	@media (max-width: 360px) {
+	@media (max-width: 400px) {
 		body {
 			background-image: none;
 		}
 
-		.service-email {
-			width: 3em;
+		.service {
+			display: inline;
 		}
 	}
 	</style>
