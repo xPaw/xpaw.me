@@ -9,51 +9,43 @@
 
 	<link rel="apple-touch-icon" sizes="128x128" href="favicon.png">
 	<link rel="icon" type="image/png" href="favicon.png" sizes="128x128">
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" crossorigin="anonymous">
 	<style>
 	html {
 		box-sizing: border-box;
+		display: flex;
+		justify-content: center;
+		user-select: none;
 	}
 
 	*, *:before, *:after {
 		box-sizing: inherit;
 	}
 
+	html, body {
+		height: 100%;
+	}
+
 	body {
-		margin: 0;
-		padding: 2em;
-		color: #FFF;
-		font: normal 20px/1.4 'Open Sans', Helvetica, Arial, sans-serif;
-		background: #070707 url(d0g.jpg) center center no-repeat;
-		background-size: cover;
-	}
-
-	::selection {
-		background-color: #1793D1;
-		color: #FFF;
-		text-shadow: none;
-	}
-
-	h1, h2, h3 {
-		font-weight: 400;
+		font: normal 20px/1.4 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+		margin: 0 1em;
+		padding: 1em 0;
+		color: #333;
+		background: #FFF;
+		border-top: .3em solid #7fccf3;
 	}
 
 	h1 {
+		font-weight: 300;
 		font-size: 3.4em;
 		margin: 0;
 	}
 
-	h2 {
-		font-size: 1.35em;
-		margin-top: -.4em;
-		color: #999;
-	}
-
 	h3 {
+		font-weight: 400;
 		font-size: 1.2em;
-		margin-top: 1.5em;
-		margin-bottom: 0;
+		margin: 0;
+		margin-top: 1em;
 	}
 
 	ul {
@@ -63,40 +55,42 @@
 		line-height: 1.6em;
 	}
 
-	.stuff,
-	.stuff a {
-		color: #999;
+	a {
+		color: #333;
 	}
 
-	.profiles a {
-		color: #FFF;
-	}
-
-	.service {
+	.service-wrap {
 		display: inline-block;
 		width: 5em;
 	}
 
 	.muted {
-		color: #444;
-		border-bottom: 2px solid transparent;
+		color: #999;
+	}
+
+	.projects a,
+	.muted,
+	.service {
+		border-bottom: 2px solid rgb(240, 240, 240);
 	}
 
 	a,
+	.service,
 	.muted {
 		text-decoration: none;
 		transition: color .2s, border-bottom-color .2s;
 	}
 
 	a:hover,
-	a:focus {
-		color: #FFF;
-		outline: none;
-	}
-
 	a:hover .muted,
+	a:focus,
 	a:focus .muted {
 		color: #1793D1;
+	}
+
+	a:hover,
+	a:hover .service,
+	a:hover .muted {
 		border-bottom-color: #1793D1;
 	}
 
@@ -105,38 +99,18 @@
 		display: inline-block;
 		text-align: center;
 		margin-right: .5em;
-		color: #FFF;
+		color: #1793D1;
 	}
-
-	@media (max-width: 570px) {
-		h2 {
-			font-size: 4.5vw;
-		}
-
+	
+	@media (max-width: 30em) {
 		h1 {
-			font-size: 11.5vw;
-		}
-	}
-
-	@media (min-height: 800px) and (min-width: 680px) {
-		body {
-			font-size: 2.5vh;
-		}
-	}
-
-	@media (max-width: 770px) {
-		body {
-			background-position: -100px center;
+			font-size: 2.5em;
 		}
 	}
 	
-	@media (max-width: 400px) {
-		body {
-			background-image: none;
-		}
-
-		.service {
-			display: inline;
+	@media (max-width: 25em) {
+		h1 {
+			font-size: 1.8em;
 		}
 	}
 	</style>
@@ -151,7 +125,6 @@
 </head>
 <body>
 	<h1>Pavel Djundik</h1>
-	<h2>I build and break web applications</h2>
 
 	<div class="stuff">
 		<h3>Contacts &amp; Profiles</h3>
@@ -160,56 +133,56 @@
 			<li>
 				<i class="fa fa-envelope" aria-hidden="true"></i>
 				<a href="mailto:hi@xpaw.me" rel="me">
-					<span class="service service-email">Email</span>
+					<span class="service-wrap"><span class="service service-email">Email</span></span>
 					<span class="muted">hi@xpaw.me</span>
 				</a>
 			</li>
 			<li>
 				<i class="fa fa-twitter" aria-hidden="true"></i>
 				<a href="https://twitter.com/thexpaw" rel="me">
-					<span class="service">Twitter</span>
+					<span class="service-wrap"><span class="service">Twitter</span></span>
 					<span class="muted">@thexpaw</span>
 				</a>
 			</li>
 			<li>
 				<i class="fa fa-github" aria-hidden="true"></i>
 				<a href="https://github.com/xPaw" rel="me">
-					<span class="service">GitHub</span>
+					<span class="service-wrap"><span class="service">GitHub</span></span>
 					<span class="muted">@xPaw</span>
 				</a>
 			</li>
 			<li>
 				<i class="fa fa-steam" aria-hidden="true"></i>
 				<a href="https://steamcommunity.com/id/xpaw" rel="me">
-					<span class="service">Steam</span>
+					<span class="service-wrap"><span class="service">Steam</span></span>
 					<span class="muted">/id/xPaw</span>
 				</a>
 			</li>
 			<li>
 				<i class="fa fa-reddit-alien" aria-hidden="true"></i>
 				<a href="https://www.reddit.com/user/xPaw/" rel="me">
-					<span class="service">Reddit</span>
+					<span class="service-wrap"><span class="service">Reddit</span></span>
 					<span class="muted">/u/xPaw</span>
 				</a>
 			</li>
 			<li>
 				<i class="fa fa-key" aria-hidden="true"></i>
 				<a href="https://keybase.io/xpaw" rel="me">
-					<span class="service">Keybase</span>
+					<span class="service-wrap"><span class="service">Keybase</span></span>
 					<span class="muted">@xPaw</span>
 				</a>
 			</li>
 			<li>
 				<i class="fa fa-google-plus" aria-hidden="true"></i>
 				<a href="https://plus.google.com/+thexpaw" rel="me author">
-					<span class="service">Google+</span>
+					<span class="service-wrap"><span class="service">Google+</span></span>
 					<span class="muted">+thexpaw</span>
 				</a>
 			</li>
 			<li>
 				<i class="fa fa-facebook-official" aria-hidden="true"></i>
 				<a href="https://www.facebook.com/thexpaw" rel="me">
-					<span class="service">Facebook</span>
+					<span class="service-wrap"><span class="service">Facebook</span></span>
 					<span class="muted">thexpaw</span>
 				</a>
 			</li>
@@ -217,7 +190,7 @@
 
 		<h3>My current projects</h3>
 
-		<ul>
+		<ul class="projects">
 			<li><a href="https://github.com/thelounge/lounge">The Lounge</a></li>
 			<li><a href="https://steamdb.info/">Steam Database</a></li>
 			<li><a href="https://steamstat.us/">Steam Status</a></li>
