@@ -1,0 +1,103 @@
+html {
+	box-sizing: border-box;
+	display: flex;
+	justify-content: center;
+	user-select: none;
+}
+
+*, *:before, *:after {
+	box-sizing: inherit;
+}
+
+html, body {
+	height: 100%;
+}
+
+body {
+	font: normal 20px/1.4 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+	margin: 0 1em;
+	padding: 1em 0;
+	color: #333;
+	background: #FFF;
+	border-top: .3em solid #7fccf3;
+}
+
+h1 {
+	font-weight: 300;
+	font-size: 3.4em;
+	margin: 0;
+}
+
+h3 {
+	font-weight: 400;
+	font-size: 1.2em;
+	margin: 0;
+	margin-top: 1em;
+}
+
+ul {
+	list-style-type: none;
+	padding: 0;
+	margin-top: .5em;
+	line-height: 1.6em;
+}
+
+a {
+	color: #333;
+}
+
+.service-wrap {
+	display: inline-block;
+	width: 5em;
+}
+
+.muted {
+	color: #999;
+}
+
+.projects a,
+.muted,
+.service {
+	border-bottom: 2px solid rgb(240, 240, 240);
+}
+
+a,
+.service,
+.muted {
+	text-decoration: none;
+	transition: color .2s, border-bottom-color .2s;
+}
+
+a:hover,
+a:hover .muted,
+a:focus,
+a:focus .muted {
+	color: #1793D1;
+}
+
+a:hover,
+a:hover .service,
+a:hover .muted {
+	border-bottom-color: #1793D1;
+}
+
+.fa,
+.fab {
+	width: 1em;
+	display: inline-block;
+	text-align: center;
+	margin-right: .5em;
+	color: #1793D1;
+}
+
+@media (max-width: 30em) {
+	h1 {
+		font-size: 2.5em;
+	}
+}
+
+@media (max-width: 25em) {
+	h1 {
+		font-size: 1.8em;
+	}
+}
