@@ -708,6 +708,13 @@ var Simulator = function (canvas, width, height, viewMatrix, cameraPosition) {
 		pingTransformFramebuffer = buildFramebuffer(gl, pingTransformTexture),
 		pongTransformFramebuffer = buildFramebuffer(gl, pongTransformTexture);
 
+	gl.bindBuffer(gl.ARRAY_BUFFER, fullscreenVertexBuffer);
+	gl.vertexAttribPointer(0, 2, gl.FLOAT, false, 0, 0);
+
+	gl.bindFramebuffer(gl.FRAMEBUFFER, initialSpectrumFramebuffer);
+	gl.useProgram(initialSpectrumProgram.program);
+	gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+
 	this.resize = function (width, height) {
 		canvas.width = width;
 		canvas.height = height;
@@ -720,10 +727,6 @@ var Simulator = function (canvas, width, height, viewMatrix, cameraPosition) {
 		gl.bindBuffer(gl.ARRAY_BUFFER, fullscreenVertexBuffer);
 		gl.vertexAttribPointer(0, 2, gl.FLOAT, false, 0, 0);
 
-		gl.bindFramebuffer(gl.FRAMEBUFFER, initialSpectrumFramebuffer);
-		gl.useProgram(initialSpectrumProgram.program);
-		gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
-		
 		//store phases separately to ensure continuity of waves during parameter editing
 		gl.useProgram(phaseProgram.program);
 		gl.bindFramebuffer(gl.FRAMEBUFFER, pingPhase ? pongPhaseFramebuffer : pingPhaseFramebuffer);
