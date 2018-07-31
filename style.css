@@ -20,6 +20,7 @@ body {
 	color: #FFF;
 	background: #000;
 	display: flex;
+	text-shadow: 1px 1px 0 #000;
 }
 
 main {
