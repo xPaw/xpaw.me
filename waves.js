@@ -37,7 +37,7 @@ var FOV = (50 / 180) * Math.PI,
 
 var SIMULATOR_CANVAS_ID = 'simulator';
 
-var CAMERA_DISTANCE = 512,
+var CAMERA_DISTANCE = 1012,
 	INITIAL_ELEVATION = 0.9;
 
 var makeIdentityMatrix = function (matrix) {
@@ -215,8 +215,7 @@ var hasWebGLSupportWithExtensions = function (extensions) {
 var Camera = function () {
 	var elevation = INITIAL_ELEVATION,
 		viewMatrix = makeIdentityMatrix(new Float32Array(16)),
-		position = new Float32Array(3),
-		changed = true;
+		position = new Float32Array(3);
 
 	this.getPosition = function () {
 		return position;
@@ -227,23 +226,19 @@ var Camera = function () {
 		distanceTranslationMatrix = makeIdentityMatrix(new Float32Array(16));
 
 	this.getViewMatrix = function () {
-		if (changed) {
-			makeIdentityMatrix(viewMatrix);
+		makeIdentityMatrix(viewMatrix);
 
-			makeXRotationMatrix(xRotationMatrix, elevation);
-			
-			distanceTranslationMatrix[14] = -CAMERA_DISTANCE;
+		makeXRotationMatrix(xRotationMatrix, elevation);
+		
+		distanceTranslationMatrix[14] = -CAMERA_DISTANCE;
 
-			premultiplyMatrix(viewMatrix, viewMatrix, orbitTranslationMatrix);
-			premultiplyMatrix(viewMatrix, viewMatrix, xRotationMatrix);
-			premultiplyMatrix(viewMatrix, viewMatrix, distanceTranslationMatrix);
+		premultiplyMatrix(viewMatrix, viewMatrix, orbitTranslationMatrix);
+		premultiplyMatrix(viewMatrix, viewMatrix, xRotationMatrix);
+		premultiplyMatrix(viewMatrix, viewMatrix, distanceTranslationMatrix);
 
-			position[0] = 0;
-			position[1] = CAMERA_DISTANCE * Math.cos(Math.PI / 2 - elevation);
-			position[2] = CAMERA_DISTANCE * Math.sin(Math.PI / 2 - elevation);
-
-			changed = false;
-		}
+		position[0] = 0;
+		position[1] = CAMERA_DISTANCE * Math.cos(Math.PI / 2 - elevation);
+		position[2] = CAMERA_DISTANCE * Math.sin(Math.PI / 2 - elevation);
 
 		return viewMatrix;
 	};
@@ -564,7 +559,7 @@ var OCEAN_FRAGMENT_SOURCE = [
 	'}'
 ].join('\n');
 
-var Simulator = function (canvas, width, height) {
+var Simulator = function (canvas, width, height, viewMatrix, cameraPosition) {
 	canvas.width = width;
 	canvas.height = height;
 
@@ -597,6 +592,8 @@ var Simulator = function (canvas, width, height) {
 		buildShader(gl, gl.FRAGMENT_SHADER, INITIAL_SPECTRUM_FRAGMENT_SOURCE), {'a_position': 0});
 	gl.useProgram(initialSpectrumProgram.program);
 	gl.uniform1f(initialSpectrumProgram.uniformLocations['u_resolution'], RESOLUTION);
+	gl.uniform2f(initialSpectrumProgram.uniformLocations['u_wind'], windX, windY);
+	gl.uniform1f(initialSpectrumProgram.uniformLocations['u_size'], size);
 
 	var phaseProgram = buildProgramWrapper(gl, fullscreenVertexShader, 
 		buildShader(gl, gl.FRAGMENT_SHADER, PHASE_FRAGMENT_SOURCE), {'a_position': 0});
@@ -608,12 +605,15 @@ var Simulator = function (canvas, width, height) {
 	gl.useProgram(spectrumProgram.program);
 	gl.uniform1i(spectrumProgram.uniformLocations['u_initialSpectrum'], INITIAL_SPECTRUM_UNIT);
 	gl.uniform1f(spectrumProgram.uniformLocations['u_resolution'], RESOLUTION);
+	gl.uniform1f(spectrumProgram.uniformLocations['u_size'], size);
+	gl.uniform1f(spectrumProgram.uniformLocations['u_choppiness'], choppiness);
 
 	var normalMapProgram = buildProgramWrapper(gl, fullscreenVertexShader, 
 		buildShader(gl, gl.FRAGMENT_SHADER, NORMAL_MAP_FRAGMENT_SOURCE), {'a_position': 0});
 	gl.useProgram(normalMapProgram.program);
 	gl.uniform1i(normalMapProgram.uniformLocations['u_displacementMap'], DISPLACEMENT_MAP_UNIT);
 	gl.uniform1f(normalMapProgram.uniformLocations['u_resolution'], RESOLUTION);
+	gl.uniform1f(normalMapProgram.uniformLocations['u_size'], size);
 
 	var oceanProgram = buildProgramWrapper(gl,
 		buildShader(gl, gl.VERTEX_SHADER, OCEAN_VERTEX_SOURCE),
@@ -629,6 +629,9 @@ var Simulator = function (canvas, width, height) {
 	gl.uniform3f(oceanProgram.uniformLocations['u_skyColor'], SKY_COLOR[0], SKY_COLOR[1], SKY_COLOR[2]);
 	gl.uniform3f(oceanProgram.uniformLocations['u_sunDirection'], SUN_DIRECTION[0], SUN_DIRECTION[1], SUN_DIRECTION[2]);
 	gl.uniform1f(oceanProgram.uniformLocations['u_exposure'], EXPOSURE);
+	gl.uniform1f(oceanProgram.uniformLocations['u_size'], size);
+	gl.uniformMatrix4fv(oceanProgram.uniformLocations['u_viewMatrix'], false, viewMatrix);
+	gl.uniform3fv(oceanProgram.uniformLocations['u_cameraPosition'], cameraPosition);
 
 	gl.enableVertexAttribArray(0);
 
@@ -709,7 +712,7 @@ var Simulator = function (canvas, width, height) {
 		canvas.height = height;
 	};
 
-	this.render = function (deltaTime, projectionMatrix, viewMatrix, cameraPosition) {
+	this.render = function (deltaTime, projectionMatrix) {
 		gl.viewport(0, 0, RESOLUTION, RESOLUTION);
 		gl.disable(gl.DEPTH_TEST);
 
@@ -718,8 +721,6 @@ var Simulator = function (canvas, width, height) {
 
 		gl.bindFramebuffer(gl.FRAMEBUFFER, initialSpectrumFramebuffer);
 		gl.useProgram(initialSpectrumProgram.program);
-		gl.uniform2f(initialSpectrumProgram.uniformLocations['u_wind'], windX, windY);
-		gl.uniform1f(initialSpectrumProgram.uniformLocations['u_size'], size);
 		gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
 		
 		//store phases separately to ensure continuity of waves during parameter editing
@@ -734,8 +735,6 @@ var Simulator = function (canvas, width, height) {
 		gl.useProgram(spectrumProgram.program);
 		gl.bindFramebuffer(gl.FRAMEBUFFER, spectrumFramebuffer);
 		gl.uniform1i(spectrumProgram.uniformLocations['u_phases'], pingPhase ? PING_PHASE_UNIT : PONG_PHASE_UNIT);
-		gl.uniform1f(spectrumProgram.uniformLocations['u_size'], size);
-		gl.uniform1f(spectrumProgram.uniformLocations['u_choppiness'], choppiness);
 		gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
 
 		var subtransformProgram = horizontalSubtransformProgram;
@@ -769,7 +768,6 @@ var Simulator = function (canvas, width, height) {
 
 		gl.bindFramebuffer(gl.FRAMEBUFFER, normalMapFramebuffer);
 		gl.useProgram(normalMapProgram.program);
-		gl.uniform1f(normalMapProgram.uniformLocations['u_size'], size);
 		gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
 
 		gl.bindFramebuffer(gl.FRAMEBUFFER, null);
@@ -783,10 +781,7 @@ var Simulator = function (canvas, width, height) {
 		gl.vertexAttribPointer(0, 3, gl.FLOAT, false, 5 * SIZE_OF_FLOAT, 0);
 
 		gl.useProgram(oceanProgram.program);
-		gl.uniform1f(oceanProgram.uniformLocations['u_size'], size);
 		gl.uniformMatrix4fv(oceanProgram.uniformLocations['u_projectionMatrix'], false, projectionMatrix);
-		gl.uniformMatrix4fv(oceanProgram.uniformLocations['u_viewMatrix'], false, viewMatrix);
-		gl.uniform3fv(oceanProgram.uniformLocations['u_cameraPosition'], cameraPosition);
 		gl.drawElements(gl.TRIANGLES, oceanIndices.length, gl.UNSIGNED_SHORT, 0);
 
 		gl.disableVertexAttribArray(OCEAN_COORDINATES_UNIT);
@@ -801,7 +796,7 @@ var main = function () {
 	var camera = new Camera(),
 		projectionMatrix = makePerspectiveMatrix(new Float32Array(16), FOV, MIN_ASPECT, NEAR, FAR);
 	
-	var simulator = new Simulator(simulatorCanvas, window.innerWidth, window.innerHeight);
+	var simulator = new Simulator(simulatorCanvas, window.innerWidth, window.innerHeight, camera.getViewMatrix(), camera.getPosition());
 
 	var onresize = function () {
 		var windowWidth = window.innerWidth,
@@ -823,7 +818,7 @@ var main = function () {
 		if (deltaTime >= timeStep) {
 			lastTime = currentTime;
 
-			simulator.render(deltaTime, projectionMatrix, camera.getViewMatrix(), camera.getPosition());
+			simulator.render(deltaTime, projectionMatrix);
 		}
 
 		window.requestAnimationFrame(render);
