@@ -17,9 +17,8 @@ body {
 	font: normal 20px/1.4 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 	margin: 0 1em;
 	padding: 1em 0;
-	color: #333;
-	background: #FFF;
-	border-top: .3em solid #7fccf3;
+	color: #FFF;
+	background: #0b1e33;
 }
 
 h1 {
@@ -43,7 +42,7 @@ ul {
 }
 
 a {
-	color: #333;
+	color: #FFF;
 }
 
 .service-wrap {
@@ -58,14 +57,13 @@ a {
 .projects a,
 .muted,
 .service {
-	border-bottom: 2px solid rgb(240, 240, 240);
+	border-bottom: 2px solid rgb(100, 100, 100);
 }
 
 a,
 .service,
 .muted {
 	text-decoration: none;
-	transition: color .2s, border-bottom-color .2s;
 }
 
 a:hover,
@@ -98,4 +96,15 @@ svg {
 	h1 {
 		font-size: 1.8em;
 	}
+}
+
+canvas {
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	z-index: -1;
+	width: 100%;
+	height: 100%;
 }
