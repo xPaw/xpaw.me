@@ -37,7 +37,7 @@ var FOV = (50 / 180) * Math.PI,
 
 var SIMULATOR_CANVAS_ID = 'simulator';
 
-var CAMERA_DISTANCE = 1012,
+var CAMERA_DISTANCE = 512,
 	INITIAL_ELEVATION = 0.9;
 
 var makeIdentityMatrix = function (matrix) {
@@ -599,6 +599,7 @@ var Simulator = function (canvas, width, height, viewMatrix, cameraPosition) {
 		buildShader(gl, gl.FRAGMENT_SHADER, PHASE_FRAGMENT_SOURCE), {'a_position': 0});
 	gl.useProgram(phaseProgram.program);
 	gl.uniform1f(phaseProgram.uniformLocations['u_resolution'], RESOLUTION);
+	gl.uniform1f(phaseProgram.uniformLocations['u_size'], size);
 
 	var spectrumProgram = buildProgramWrapper(gl, fullscreenVertexShader, 
 		buildShader(gl, gl.FRAGMENT_SHADER, SPECTRUM_FRAGMENT_SOURCE), {'a_position': 0});
@@ -729,7 +730,6 @@ var Simulator = function (canvas, width, height, viewMatrix, cameraPosition) {
 		gl.uniform1i(phaseProgram.uniformLocations['u_phases'], pingPhase ? PING_PHASE_UNIT : PONG_PHASE_UNIT);
 		pingPhase = !pingPhase;
 		gl.uniform1f(phaseProgram.uniformLocations['u_deltaTime'], deltaTime);
-		gl.uniform1f(phaseProgram.uniformLocations['u_size'], size);
 		gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
 
 		gl.useProgram(spectrumProgram.program);
