@@ -406,7 +406,7 @@ var PHASE_FRAGMENT_SOURCE = [
 		'vec2 waveVector = (2.0 * PI * vec2(n, m)) / u_size;',
 
 		'float phase = texture2D(u_phases, v_coordinates).r;',
-		'float deltaPhase = omega(length(waveVector)) * u_deltaTime;',
+		'float deltaPhase = omega(length(waveVector)) * (u_deltaTime / 1000.0);',
 		'phase = mod(phase + deltaPhase, 2.0 * PI);',
 
 		'gl_FragColor = vec4(phase, 0.0, 0.0, 0.0);',
@@ -815,15 +815,20 @@ var main = function () {
 	onresize();
 
 	var lastTime = 0;
-	var render = function render (currentTime) {
-		var deltaTime = (currentTime - lastTime) / 1000 || 0.0;
-		lastTime = currentTime;
+	var timeStep = 1000 / 30;
 
-		simulator.render(deltaTime, projectionMatrix, camera.getViewMatrix(), camera.getPosition());
+	var render = function render (currentTime) {
+		var deltaTime = (currentTime - lastTime) || 0.0;
+
+		if (deltaTime >= timeStep) {
+			lastTime = currentTime;
+
+			simulator.render(deltaTime, projectionMatrix, camera.getViewMatrix(), camera.getPosition());
+		}
 
 		window.requestAnimationFrame(render);
 	};
-	render(0);
+	render(0.0);
 };
 
 if (hasWebGLSupportWithExtensions(['OES_texture_float', 'OES_texture_float_linear'])) {
