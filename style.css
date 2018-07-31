@@ -19,6 +19,11 @@ body {
 	padding: 1em 0;
 	color: #FFF;
 	background: #0b1e33;
+	display: flex;
+}
+
+main {
+	margin: auto;
 }
 
 h1 {
