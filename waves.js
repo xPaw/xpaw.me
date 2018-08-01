@@ -715,6 +715,8 @@ var Simulator = function (canvas, width, height, viewMatrix, cameraPosition) {
 	gl.useProgram(initialSpectrumProgram.program);
 	gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
 
+	this.isFramebufferComplete = gl.checkFramebufferStatus(gl.FRAMEBUFFER) === gl.FRAMEBUFFER_COMPLETE;
+
 	this.resize = function (width, height) {
 		canvas.width = width;
 		canvas.height = height;
@@ -800,6 +802,12 @@ var main = function () {
 		projectionMatrix = makePerspectiveMatrix(new Float32Array(16), FOV, MIN_ASPECT, NEAR, FAR);
 	
 	var simulator = new Simulator(simulatorCanvas, window.innerWidth, window.innerHeight, camera.getViewMatrix(), camera.getPosition());
+
+	// If framebuffer fails, remove canvas and don't try to render
+	if (!simulator.isFramebufferComplete) {
+		simulatorCanvas.parentNode.removeChild(simulatorCanvas);
+		return;
+	}
 
 	var onresize = function () {
 		var windowWidth = window.innerWidth,
