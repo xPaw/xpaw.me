@@ -48,7 +48,20 @@ ul {
 }
 
 a {
-	color: #FFF;
+	color: #eee;
+	position: relative;
+}
+
+a::before {
+	background: transparent;
+	display: block;
+	content: " ";
+	position: absolute;
+	left: -10px;
+	right: -10px;
+	top: -3px;
+	bottom: -5px;
+	z-index: -1;
 }
 
 .service-wrap {
@@ -60,12 +73,6 @@ a {
 	color: #999;
 }
 
-.projects a,
-.muted,
-.service {
-	border-bottom: 2px solid rgb(100, 100, 100);
-}
-
 a,
 .service,
 .muted {
@@ -73,16 +80,20 @@ a,
 }
 
 a:hover,
-a:hover .muted,
-a:focus,
-a:focus .muted {
-	color: #1793D1;
+a:focus {
+	outline: none;
+	text-shadow: 1px 1px 0 #FFF;
+	color: #000;
 }
 
-a:hover,
-a:hover .service,
-a:hover .muted {
-	border-bottom-color: #1793D1;
+a:hover::before,
+a:focus::before {
+	background: #fff;
+}
+
+a:hover .muted,
+a:focus .muted {
+	color: inherit;
 }
 
 svg {
@@ -91,6 +102,12 @@ svg {
 	vertical-align: -.1em;
 	margin-right: .5em;
 	fill: #1793D1;
+}
+
+
+a:hover svg,
+a:focus svg {
+	fill: #0f618a;
 }
 
 @media (max-width: 30em) {
