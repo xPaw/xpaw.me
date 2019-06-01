@@ -111,13 +111,13 @@
 		</div>
 	</main>
 	<!--sse--><script>
-	(() => {
-		if( 'webdriver' in navigator || document.visibilityState === 'prerender' || !location.hostname )
+	(async () => {
+		if( navigator.webdriver || document.visibilityState === 'prerender' || !location.hostname )
 		{
 			return;
 		}
 
-		document.querySelector( 'a[href="/cdn-cgi/l/email-protection"]' ).href = `\x6dailto:hi@${location.hostname}`;
+		document.querySelector( 'a[href="/cdn-cgi/l/email-protection"]' ).href = `\x6dailto:hi\x40${location.hostname}`;
 	})();
 	</script><!--/sse-->
 </body>
