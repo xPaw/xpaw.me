@@ -50,6 +50,11 @@
 			url("https://cdn.jsdelivr.net/npm/inter-ui@3.9.0/Inter%20(web)/Inter-Regular.woff") format("woff");
 	}
 
+	:root {
+		--bg-color: #FFF;
+		--text-color: #000;
+	}
+
 	html {
 		box-sizing: border-box;
 		display: flex;
@@ -70,8 +75,8 @@
 		font: normal 20px/1.4 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
 		margin: 0 1em;
 		padding: 1em 0;
-		color: #000;
-		background: #FFF;
+		color: var(--text-color);
+		background: var(--bg-color);
 		display: flex;
 	}
 
@@ -91,8 +96,19 @@
 	a:hover,
 	a:focus {
 		outline: none;
-		background: #000;
-		color: #fff;
+		background: var(--text-color);
+		color: var(--bg-color);
+	}
+
+	@media screen and (prefers-color-scheme: dark) {
+		:root {
+			--bg-color: #000;
+			--text-color: #FFF;
+		}
+
+		a {
+			background: hsl(200, 100%, 30%);
+		}
 	}
 	</style>
 </head>
