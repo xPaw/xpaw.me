@@ -73,12 +73,22 @@
 		max-width: 800px;
 	}
 
+	a {
+		color: hsl(200, 50%, 45%);
+	}
+
+	a:hover,
+	a:focus {
+		color: hsl(200, 80%, 45%);
+	}
+
 	.main {
-		padding: 0 8px;
+		padding: 12px;
 		font-size: 24px;
 		line-height: 1.2;
 		display: flex;
-		min-height: calc(100% - 100px);
+		min-height: calc(100% - 200px);
+		color: hsl(200, 7%, 80%);
 	}
 
 	.main > div {
@@ -91,20 +101,24 @@
 		margin: 0;
 	}
 
-	.main a {
-		color: inherit;
-		text-decoration: none;
-		background: hsl(200, 100%, 30%);
+	.main h2 {
+		font-size: 18px;
+		font-weight: 400;
+		margin: 0;
+		color: hsl(200, 7%, 30%);
 	}
 
-	.main a:hover,
-	.main a:focus {
-		background: #FFF;
-		color: #000;
+	.main h1 a {
+		text-decoration: none;
+		color: #fff;
+	}
+
+	.main h1 a:hover {
+		text-decoration: underline;
 	}
 
 	.stuff {
-		padding: 0 8px;
+		padding: 0 12px;
 		padding-bottom: 40px;
 	}
 
@@ -126,15 +140,8 @@
 		margin-top: 8px;
 	}
 
-	.stuff,
 	.stuff a {
-		color: hsl(200, 50%, 45%);
 		font-size: 20px;
-	}
-
-	.stuff a:hover,
-	.stuff a:focus {
-		color: hsl(200, 80%, 45%);
 	}
 
 	.fade {
@@ -152,8 +159,8 @@
 	<div class="main">
 		<div>
 			<h1><a href="/cdn-cgi/l/email-protection">Pavel Djundik</a></h1>
-			Full-stack developer, open-sourcerer, data miner.<br><br>
-			I work on <a href="https://steamdb.info">Steam Database</a> and <a href="https://thelounge.chat">The Lounge</a>.<br>
+			<h2>You may know me as xPaw.</h2><br>
+			Full-stack developer,<br>open-sourcerer, data miner.<br><br>
 			Follow me on <a href="https://twitter.com/thexpaw">Twitter</a>.<br>
 			View my code on <a href="https://github.com/xPaw">GitHub</a>.
 		</div>
