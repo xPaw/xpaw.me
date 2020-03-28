@@ -237,6 +237,15 @@
 			e.preventDefault();
 			this.textContent = `hi\x40${location.hostname}`;
 			this.classList.add( 'shown' );
+
+			if( window.getSelection )
+			{
+				const selection = window.getSelection();
+				const range = document.createRange();
+				range.selectNodeContents( this );
+				selection.removeAllRanges();
+				selection.addRange( range );
+			}
 		} );
 	})();
 	</script><!--/sse-->
