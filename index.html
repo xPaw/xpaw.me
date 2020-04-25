@@ -47,8 +47,7 @@
 		font-style: normal;
 		font-weight: 400;
 		font-display: swap;
-		src: url("https://cdn.jsdelivr.net/npm/inter-ui@3.11.0/Inter%20(web)/Inter-Regular.woff2") format("woff2"),
-			url("https://cdn.jsdelivr.net/npm/inter-ui@3.11.0/Inter%20(web)/Inter-Regular.woff") format("woff");
+		src: url("https://cdn.jsdelivr.net/npm/inter-ui@3.13.1/Inter%20(web)/Inter-Regular.woff2") format("woff2");
 	}
 
 	html {
@@ -75,48 +74,60 @@
 	}
 
 	a {
-		color: hsl(200, 50%, 45%);
+		color: hsl(140, 50%, 45%);
 	}
 
-	a:hover,
+	a:hover {
+		color: hsl(140, 100%, 45%);
+	}
+
 	a:focus {
-		color: hsl(200, 80%, 45%);
+		outline: none;
+		color: hsl(240, 22%, 7%);
+		background-color: hsl(140, 80%, 45%);
+		text-decoration: none;
 	}
 
-	.main {
+	main {
 		padding: 12px;
 		font-size: 24px;
 		line-height: 1.2;
 		display: flex;
 		min-height: calc(100% - 200px);
-		color: hsl(200, 7%, 80%);
+		color: hsl(140, 7%, 80%);
 	}
 
-	.main > div {
+	main > div {
 		margin: auto 0;
 	}
 
-	.main h1 {
+	main h1 {
 		font-size: 40px;
 		font-weight: 400;
 		margin: 0;
 		color: #fff;
 	}
 
-	.main h2 {
+	main h2 {
 		font-size: 18px;
 		font-weight: 400;
 		margin: 0;
-		color: hsl(200, 7%, 53%);
+		color: hsl(140, 7%, 53%);
 	}
 
-	.main h1 a:hover {
+	main h1 a:hover {
 		text-decoration: underline;
+	}
+
+	main p {
+		margin: 0;
+		margin-top: 24px;
 	}
 
 	.stuff {
 		padding: 0 12px;
 		padding-bottom: 40px;
+		min-height: calc(100% - 200px);
 	}
 
 	.stuff h3 {
@@ -130,11 +141,11 @@
 		list-style-type: none;
 		padding: 0;
 		font-size: 16px;
-		color: hsl(200, 7%, 53%);
+		color: hsl(140, 7%, 53%);
 	}
 
 	.stuff li {
-		margin-top: 8px;
+		margin-top: 14px;
 	}
 
 	.stuff a {
@@ -151,38 +162,6 @@
 		pointer-events: none;
 	}
 
-	#crowbar {
-		background-color: hsl(200, 50%, 15%);
-		color: hsl(200, 50%, 45%);
-		padding: 10px 20px;
-		border-radius: 10px;
-		text-decoration: none;
-		font-size: 24px;
-		margin-top: 30px;
-		display: block;
-		width: max-content;
-		cursor: pointer;
-	}
-
-	#crowbar.shown {
-		cursor: unset;
-		user-select: text;
-	}
-
-	#crowbar:not(.shown):hover {
-		color: #fff;
-		background: hsl(200, 80%, 45%);
-		outline: none;
-	}
-
-	@media (min-width: 960px) {
-		#crowbar {
-			position: fixed;
-			bottom: 40px;
-			right: 30px;
-		}
-	}
-
 	::-webkit-scrollbar {
 		width: 14px;
 		background: transparent;
@@ -192,30 +171,28 @@
 		width: 10px;
 		border-radius: 10px;
 		border: 4px solid rgba(0, 0, 0, 0);
-		background-color: hsl(200, 7%, 30%);
+		background-color: hsl(140, 7%, 30%);
 		background-clip: padding-box;
 	}
 
 	::-webkit-scrollbar-thumb:hover {
-		background: hsl(200, 80%, 45%);
+		background: hsl(140, 50%, 45%);
 	}
 	</style>
 </head>
 <body>
-	<div class="main">
+	<main>
 		<div>
 			<h1>Pavel Djundik</h1>
-			<h2>You may know me as xPaw.</h2><br>
-			Full-stack developer,<br>open-sourcerer, data miner.<br><br>
-			Follow me on <a href="https://twitter.com/thexpaw">Twitter</a>.<br>
-			View my code on <a href="https://github.com/xPaw">GitHub</a>.
-
-			<span id="crowbar">Email →</span>
+			<h2>You may know me as xPaw</h2>
+			<p>Full-stack developer,<br>open-sourcerer, data miner.</p>
+			<p>Follow me on <a href="https://twitter.com/thexpaw">Twitter</a><br>
+			View my code on <a href="https://github.com/xPaw">GitHub</a></p>
+			<p>Email me at <a href="/cdn-cgi/l/email-protection">[hi at this domain]</a></p>
 		</div>
-	</div>
+	</main>
 	<div class="stuff">
-		<h3>Projects</h3>
-
+		<h3>My projects</h3>
 		<ul>
 			<li><a href="https://thelounge.chat/">The Lounge</a><br>Self-hosted web IRC client</li>
 			<li><a href="https://steamdb.info/">Steam Database</a><br>Insights, tracking and all things Steam</li>
@@ -225,80 +202,21 @@
 			<li><a href="https://lab.xpaw.me/alldomainsearch.html">Search all domains at once</a><br>Find unregistered domains in all TLDs</li>
 			<li><a href="https://lab.xpaw.me/langanalyzer/">AMXX Language File Analyzer</a><br>Lint translation files for AMXX plugins</li>
 		</ul>
-
-		<h3>GitHub Repos</h3>
-
-		<ul id="js-gh"><li>Loading… (requires javascript)</li></ul>
 	</div>
 	<div class="fade"></div>
 	<!--sse--><script>
-	(async () => {
-		document.getElementById( 'crowbar' ).addEventListener( 'click', function( e )
+	(async () =>
+	{
+		if( navigator.webdriver || !location.hostname )
 		{
-			e.preventDefault();
-			this.textContent = `hi\x40${location.hostname}`;
-			this.classList.add( 'shown' );
+			return;
+		}
 
-			if( window.getSelection )
-			{
-				const selection = window.getSelection();
-				const range = document.createRange();
-				range.selectNodeContents( this );
-				selection.removeAllRanges();
-				selection.addRange( range );
-			}
-		} );
+		const text = '\x68\x69\x40' + location.hostname;
+		const element = document.querySelector( 'a[href="/cdn-cgi/l/email-protection"]' );
+		element.textContent = text;
+		element.href = `\x6d\x61\x69\x6C\x74\x6F\x3A${text}`;
 	})();
 	</script><!--/sse-->
-	<script>
-	(async () => {
-		const container = document.getElementById( 'js-gh' );
-		async function LoadRepos()
-		{
-			const response = await fetch( 'https://api.github.com/users/xPaw/repos?per_page=100&sort=updated' );
-
-			if( response.status !== 200 )
-			{
-				container.innerHTML = `<li>Failed to load repositories (HTTP ${response.status})</li>`;
-				return;
-			}
-
-			const data = await response.json();
-			const html = [];
-
-			for( const repo of data )
-			{
-				if( !repo.fork && !repo.archived )
-				{
-					html.push( `<li><a href="${repo.html_url}">${repo.name}</a><br>${repo.description}</li>` );
-				}
-			}
-
-			container.innerHTML = html.join( '' );
-		}
-
-		if( window.IntersectionObserver )
-		{
-			const observer = new window.IntersectionObserver( ( entries ) =>
-			{
-				entries.forEach( async ( entry ) =>
-				{
-					if( entry.isIntersecting )
-					{
-						observer.unobserve( container );
-						await LoadRepos();
-					}
-				} );
-			}, {
-				root: null
-			} );
-			observer.observe( container );
-		}
-		else
-		{
-			await LoadRepos();
-		}
-	})();
-	</script>
 </body>
 </html>
