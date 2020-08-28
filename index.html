@@ -101,10 +101,14 @@
 	}
 
 	main h1 {
-		font-size: 40px;
+		font-size: 0;
 		font-weight: 400;
 		margin: 0;
-		color: #fff;
+		color: hsl(140, 50%, 45%);
+	}
+
+	main h1 span {
+		font-size: 80px;
 	}
 
 	main h2 {
@@ -197,6 +201,10 @@
 		fill: hsl(240, 20%, 30%);
 	}
 
+	.z-layer:not(:first-child) {
+		color: hsl(140, 50%, 30%);
+	}
+
 	#steamdb {
 		margin-top: 4px;
 		font-size: 14px;
@@ -210,6 +218,10 @@
 	@media (max-width: 700px) {
 		svg {
 			width: 20vw;
+		}
+
+		main h1 span {
+			font-size: 40px;
 		}
 	}
 
@@ -235,7 +247,21 @@
 				<path class="fill-2" d="M191 164l71-37 1 2-71 37zM116 147l1-2 71 38-1 2z"/>
 			</svg>
 
-			<h1>Pavel Djundik</h1>
+			<h1>
+				<span data-z="true">P</span>
+				<span data-z="true">a</span>
+				<span data-z="true">v</span>
+				<span data-z="true">e</span>
+				<span data-z="true">l</span>
+				<span>&nbsp;</span>
+				<span data-z="true">D</span>
+				<span data-z="true">j</span>
+				<span data-z="true">u</span>
+				<span data-z="true">n</span>
+				<span data-z="true">d</span>
+				<span data-z="true">i</span>
+				<span data-z="true">k</span>
+			</h1>
 			<h2>You may know me as xPaw</h2>
 			<p>Full-stack developer,<br>open-sourcerer, data miner.</p>
 			<p>Follow me on <a href="https://twitter.com/thexpaw">Twitter</a><br>
@@ -271,5 +297,6 @@
 		element.href = `\x6d\x61\x69\x6C\x74\x6F\x3A${text}`;
 	})();
 	</script><!--/sse-->
+	<script src="ztext.js" async></script>
 </body>
 </html>
