@@ -75,15 +75,17 @@
 		color: hsl(140, 50%, 45%);
 	}
 
-	a:hover {
-		color: hsl(140, 100%, 45%);
-	}
-
+	a:hover,
 	a:focus {
 		outline: none;
 		color: hsl(240, 22%, 7%);
 		background-color: hsl(140, 80%, 45%);
+		box-shadow: 3px 3px 0 hsl(140, 80%, 25%);
 		text-decoration: none;
+	}
+
+	a:active {
+		box-shadow: 0 0 0 3px hsl(140, 80%, 45%);
 	}
 
 	main {
