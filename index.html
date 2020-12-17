@@ -50,8 +50,7 @@
 
 	html {
 		box-sizing: border-box;
-		user-select: none;
-		scrollbar-color: dark;
+		scrollbar-width: thin;
 		-webkit-tap-highlight-color: transparent;
 	}
 
@@ -156,6 +155,11 @@
 		height: 40px;
 		background: linear-gradient(to bottom, transparent, hsl(240, 22%, 7%));
 		pointer-events: none;
+	}
+
+	::selection {
+		background: hsl(140, 100%, 45%);
+		color: hsl(240, 22%, 7%);
 	}
 
 	::-webkit-scrollbar {
