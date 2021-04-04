@@ -62,9 +62,11 @@
 		display: flex;
 		background-attachment: fixed;
 		background-color: hsl(240, 22%, 7%);
+		--bg-color-1: #c31432;
+		--bg-color-2: #240b36;
 		background-image: linear-gradient(125deg,
-			#c31432,
-			#240b36 calc(45% - 1px),
+			var(--bg-color-1),
+			var(--bg-color-2) calc(45% - 1px),
 			transparent 45%
 		);
 	}
@@ -181,20 +183,28 @@
 		.container {
 			flex-direction: column;
 			justify-content: unset;
-			margin: 40px auto;
-			flex-grow: 0;
+			margin: 0 auto;
+		}
+
+		.basis {
+			flex-basis: 100%;
+			justify-content: unset;
+		}
+
+		.basis-main {
+			background-image: linear-gradient(125deg, var(--bg-color-1), var(--bg-color-2));
 		}
 
 		.main {
-			margin-bottom: 40px;
+			margin: 40px 15px;
+		}
+
+		.stuff {
+			margin: 10px 15px 40px;
 		}
 	}
 
 	@media (max-width: 600px) {
-		.container {
-			margin: 40px;
-		}
-
 		.main h1 {
 			font-size: 40px;
 		}
@@ -203,7 +213,7 @@
 </head>
 <body>
 	<div class="container">
-		<div class="basis">
+		<div class="basis basis-main">
 			<div class="main">
 				<h1>Pavel Djundik</h1>
 				<h2>You may know me as xPaw</h2>
