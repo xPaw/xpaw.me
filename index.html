@@ -50,16 +50,23 @@
 		box-sizing: inherit;
 	}
 
-	html, body {
+	html,
+	body {
 		height: 100%;
 	}
 
 	body {
 		font: normal 20px/1.4 system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-		margin: 0 auto;
+		margin: 0;
 		color: #fff;
+		display: flex;
+		background-attachment: fixed;
 		background-color: hsl(240, 22%, 7%);
-		max-width: 800px;
+		background-image: linear-gradient(125deg,
+			#c31432,
+			#240b36 calc(45% - 1px),
+			transparent 45%
+		);
 	}
 
 	a {
@@ -79,50 +86,38 @@
 		box-shadow: 0 0 0 3px hsl(140, 80%, 45%);
 	}
 
-	main {
-		padding: 12px;
+	.container {
+		display: flex;
+		justify-content: space-around;
+		flex-grow: 1;
+		margin: auto;
+	}
+
+	.main {
 		font-size: 24px;
 		line-height: 1.2;
 		display: flex;
-		min-height: calc(100% - 200px);
+		flex-direction: column;
 		color: hsl(140, 7%, 80%);
 	}
 
-	main > div {
-		margin: auto 0;
-	}
-
-	main h1 {
+	.main h1 {
 		font-size: 80px;
 		font-weight: 400;
 		margin: 0;
 		color: hsl(140, 100%, 45%);
 	}
 
-	main h2 {
+	.main h2 {
 		font-size: 18px;
 		font-weight: 400;
 		margin: 0;
 		color: hsl(140, 7%, 53%);
 	}
 
-	main p {
+	.main p {
 		margin: 0;
 		margin-top: 24px;
-	}
-
-	.stuff {
-		padding: 0 12px;
-		padding-bottom: 40px;
-		min-height: calc(100% - 200px);
-	}
-
-	.stuff h3 {
-		color: #fff;
-		margin-top: 30px;
-		margin-bottom: 0;
-		font-weight: 400;
-		font-size: 30px;
 	}
 
 	.stuff ul {
@@ -140,16 +135,6 @@
 		font-size: 20px;
 	}
 
-	.fade {
-		position: fixed;
-		bottom: 0;
-		left: 0;
-		width: 100%;
-		height: 40px;
-		background: linear-gradient(to bottom, transparent, hsl(240, 22%, 7%));
-		pointer-events: none;
-	}
-
 	::selection {
 		background: hsl(140, 100%, 45%);
 		color: hsl(240, 22%, 7%);
@@ -165,16 +150,37 @@
 		color: inherit;
 	}
 
+	@media (max-width: 1080px) {
+		body {
+			background-image: unset;
+		}
+
+		.container {
+			flex-direction: column;
+			justify-content: unset;
+			margin: 40px auto;
+			flex-grow: 0;
+		}
+
+		.main {
+			margin-bottom: 40px;
+		}
+	}
+
 	@media (max-width: 600px) {
-		main h1 {
+		.container {
+			margin: 40px;
+		}
+
+		.main h1 {
 			font-size: 40px;
 		}
 	}
 	</style>
 </head>
 <body>
-	<main>
-		<div>
+	<div class="container">
+		<div class="main">
 			<h1>Pavel Djundik</h1>
 			<h2>You may know me as xPaw</h2>
 			<p>Full-stack developer,<br>open-sourcerer, data miner.</p>
@@ -183,20 +189,18 @@
 			<p>Email me at <a href="/cdn-cgi/l/email-protection">[hi at this domain]</a></p>
 			<p id="steamdb">For all SteamDB inquiries, <a href="https://steamdb.info/faq/#how-to-contact-you">contact here</a></p>
 		</div>
-	</main>
-	<div class="stuff">
-		<h3>My projects</h3>
-		<ul>
-			<li><a href="https://steamdb.info/">Steam Database</a><br>Insights, tracking and all things Steam</li>
-			<li><a href="https://steamstat.us/">Steam Status</a><br>Status of Steam and related services</li>
-			<li><a href="https://vrf.steamdb.info/">ValveResourceFormat</a><br>Parser, decompiler, and viewer for various Source 2 engine files</li>
-			<li><a href="https://steamapi.xpaw.me/">Steam Web API Documentation</a><br>An list of Steam Web API interfaces</li>
-			<li><a href="https://thelounge.chat/">The Lounge</a><br>Self-hosted web IRC client</li>
-			<li><a href="https://lab.xpaw.me/license-parser.html">Steam License Parser</a><br>Parse Steam licenses information and generate stats</li>
-			<li><a href="https://lab.xpaw.me/alldomainsearch.html">Search all domains at once</a><br>Find unregistered domains in all TLDs</li>
-		</ul>
+		<div class="stuff">
+			<ul>
+				<li><a href="https://steamdb.info/">Steam Database</a><br>Insights, tracking and all things Steam</li>
+				<li><a href="https://steamstat.us/">Steam Status</a><br>Status of Steam and related services</li>
+				<li><a href="https://vrf.steamdb.info/">ValveResourceFormat</a><br>Parser, decompiler, and viewer for various Source 2 engine files</li>
+				<li><a href="https://steamapi.xpaw.me/">Steam Web API Documentation</a><br>An list of Steam Web API interfaces</li>
+				<li><a href="https://thelounge.chat/">The Lounge</a><br>Self-hosted web IRC client</li>
+				<li><a href="https://lab.xpaw.me/license-parser.html">Steam License Parser</a><br>Parse Steam licenses information and generate stats</li>
+				<li><a href="https://lab.xpaw.me/alldomainsearch.html">Search all domains at once</a><br>Find unregistered domains in all TLDs</li>
+			</ul>
+		</div>
 	</div>
-	<div class="fade"></div>
 	<!--sse--><script>
 	(async () =>
 	{
