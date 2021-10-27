@@ -1,9 +1,9 @@
 /
 	Cross-Origin-Opener-Policy: same-origin
 	Cross-Origin-Embedder-Policy: require-corp
-	Content-Security-Policy: block-all-mixed-content; default-src 'none'; base-uri 'none'; form-action 'none'; style-src 'unsafe-inline'; script-src 'unsafe-inline'; font-src 'self';
+	Content-Security-Policy: block-all-mixed-content; default-src 'none'; base-uri 'none'; form-action 'none'; style-src 'unsafe-inline'; script-src 'unsafe-inline'; font-src 'self'; img-src data:;
 	Referrer-Policy: strict-origin
 	X-Frame-Options: DENY
 
-*.woff2
+/*.woff2
 	Cross-Origin-Resource-Policy: same-origin
