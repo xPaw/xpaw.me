@@ -1,1 +1,3 @@
 * text eol=lf
+*.ico binary
+*.woff2 binary
