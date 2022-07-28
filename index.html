@@ -61,13 +61,10 @@
 		scrollbar-width: thin;
 		-webkit-tap-highlight-color: transparent;
 
-		--padding: 20px;
-		--color-background: #121212;
-		--color-primary: #e8e5df;
-		--color-highlight: gold;
-
-		background: var(--color-highlight);
-		padding: var(--padding);
+		--font-size: 45px;
+		--color-background: #003566;
+		--color-primary: #f0f3bd;
+		--color-highlight: #e9ff70;
 	}
 
 	*, *:before, *:after {
@@ -78,9 +75,14 @@
 		font: normal 24px/1.4 PlusJakartaSans, system-ui, sans-serif;
 		margin: 0;
 		display: flex;
+		flex-direction: column;
 		color: var(--color-primary);
 		background-color: var(--color-background);
-		min-height: calc(100vh - var(--padding) * 2);
+		min-height: 100vh;
+
+		background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 900 600' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' version='1.1'%3E%3Cg fill='%23028090'%3E%3Ccircle r='127' cx='5' cy='335'%3E%3C/circle%3E%3Ccircle r='56' cx='606' cy='260'%3E%3C/circle%3E%3Ccircle r='122' cx='876' cy='75'%3E%3C/circle%3E%3Ccircle r='89' cx='755' cy='466'%3E%3C/circle%3E%3C/g%3E%3C/svg%3E");
+		background-size: 100%;
+		background-repeat: no-repeat;
 	}
 
 	::selection {
@@ -90,16 +92,12 @@
 
 	a {
 		color: var(--color-highlight);
-		text-decoration-thickness: from-font;
-	}
-
-	a:hover,
-	a:focus {
-		color: #FFF;
-	}
-
-	a:focus {
 		text-decoration: none;
+	}
+
+	a:hover {
+		color: #FFF;
+		text-decoration: underline;
 	}
 
 	main {
@@ -107,18 +105,26 @@
 		padding: 20px;
 	}
 
-	main h1 {
-		font-family: Stardom, system-ui, sans-serif;
-		font-size: 120px;
-		font-weight: 400;
-		margin: 0;
-		line-height: 1;
-		color: var(--color-highlight);
+	footer {
+		font-size: 10px;
+		text-align: center;
+		padding-bottom: 20px;
 	}
 
-	main p {
-		margin: 0;
-		margin-top: 30px;
+	.hello {
+		font-size: var(--font-size);
+		line-height: 1.2;
+		margin-bottom: 30px;
+	}
+
+	.name {
+		font-family: Stardom, system-ui, sans-serif;
+		color: var(--color-highlight);
+		font-size: calc(var(--font-size) + 10px);
+	}
+
+	.link {
+		font-size: 40px;
 	}
 
 	.link + .link {
@@ -128,6 +134,8 @@
 	.link svg {
 		vertical-align: bottom;
 		margin-right: 5px;
+		height: calc(1em + 10px);
+		width: calc(1em + 10px);
 	}
 
 	.steamdb {
@@ -136,13 +144,13 @@
 		padding: 10px 15px;
 		display: inline-block;
 		text-decoration: none;
-		color: var(--color-primary);
-		background-color: rgba(255, 255, 255, .05);
+		color: #fff;
+		background-color: #028090;
 	}
 
 	.steamdb:hover,
 	.steamdb:focus {
-		background-color: hsl(140, 80%, 15%);
+		background-color: #000;
 		text-decoration: underline;
 	}
 
@@ -160,38 +168,57 @@
 		color: inherit;
 	}
 
-	@media (max-width: 600px) {
+	.br1 {
+		display: none;
+	}
+
+	@media (max-width: 1100px) {
 		html {
-			--padding: 10px;
+			--font-size: 30px;
+		}
+	}
+
+	@media (max-width: 760px) {
+		.br1 {
+			display: block;
 		}
 
-		main h1 {
-			font-size: 60px;
+		.br2 {
+			display: none;
+		}
+	}
+
+	@media (max-width: 500px) {
+		html {
+			--font-size: 26px;
+		}
+
+		.link {
+			font-size: 30px;
 		}
 	}
 	</style>
 </head>
 <body>
 	<main>
-		<h1>Pavel Djundik</h1>
-		<p>
-			Full-stack developer, data miner,
+		<div class="hello">
+			Hi, I'm <span class="name">Pavel Djundik</span>,
+			<br class="br1"> a full-stack developer,
+			<br class="br2"> data miner,
 			creator of <a href="https://steamdb.info/">SteamDB</a>.
-		</p>
+		</div>
 
-		<div>
-			<p class="link">
-				<svg role="img" viewBox="0 0 24 24" width="30" height="30" xmlns="http://www.w3.org/2000/svg"><path fill="#1DA1F2" d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
-				<a href="https://twitter.com/thexpaw" rel="me">thexpaw</a>
-			</p>
-			<p class="link">
-				<svg role="img" viewBox="0 0 24 24" width="30" height="30" xmlns="http://www.w3.org/2000/svg"><path fill="#FFF" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
-				<a href="https://github.com/xPaw" rel="me">xPaw</a>
-			</p>
-			<p class="link">
-				<svg role="img" viewBox="0 0 24 24" width="30" height="30" xmlns="http://www.w3.org/2000/svg"><path fill="#EA4335" d="M15.61 12c0 1.99-1.62 3.61-3.61 3.61-1.99 0-3.61-1.62-3.61-3.61 0-1.99 1.62-3.61 3.61-3.61 1.99 0 3.61 1.62 3.61 3.61M12 0C5.383 0 0 5.383 0 12s5.383 12 12 12c2.424 0 4.761-.722 6.76-2.087l.034-.024-1.617-1.879-.027.017A9.494 9.494 0 0 1 12 21.54c-5.26 0-9.54-4.28-9.54-9.54 0-5.26 4.28-9.54 9.54-9.54 5.26 0 9.54 4.28 9.54 9.54a9.63 9.63 0 0 1-.225 2.05c-.301 1.239-1.169 1.618-1.82 1.568-.654-.053-1.42-.52-1.426-1.661V12A6.076 6.076 0 0 0 12 5.93 6.076 6.076 0 0 0 5.93 12 6.076 6.076 0 0 0 12 18.07a6.02 6.02 0 0 0 4.3-1.792 3.9 3.9 0 0 0 3.32 1.805c.874 0 1.74-.292 2.437-.821.719-.547 1.256-1.336 1.553-2.285.047-.154.135-.504.135-.507l.002-.013c.175-.76.253-1.52.253-2.457 0-6.617-5.383-12-12-12"/></svg>
-				<a href="/cdn-cgi/l/email-protection">hi at this domain</a>
-			</p>
+		<div class="link">
+			<svg role="img" viewBox="0 0 24 24" width="50" height="50" xmlns="http://www.w3.org/2000/svg"><path fill="#1DA1F2" d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
+			<a href="https://twitter.com/thexpaw" rel="me">thexpaw</a>
+		</div>
+		<div class="link">
+			<svg role="img" viewBox="0 0 24 24" width="50" height="50" xmlns="http://www.w3.org/2000/svg"><path fill="#FFF" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+			<a href="https://github.com/xPaw" rel="me">xPaw</a>
+		</div>
+		<div class="link">
+			<svg role="img" viewBox="0 0 24 24" width="50" height="50" xmlns="http://www.w3.org/2000/svg"><path fill="#EA4335" d="M15.61 12c0 1.99-1.62 3.61-3.61 3.61-1.99 0-3.61-1.62-3.61-3.61 0-1.99 1.62-3.61 3.61-3.61 1.99 0 3.61 1.62 3.61 3.61M12 0C5.383 0 0 5.383 0 12s5.383 12 12 12c2.424 0 4.761-.722 6.76-2.087l.034-.024-1.617-1.879-.027.017A9.494 9.494 0 0 1 12 21.54c-5.26 0-9.54-4.28-9.54-9.54 0-5.26 4.28-9.54 9.54-9.54 5.26 0 9.54 4.28 9.54 9.54a9.63 9.63 0 0 1-.225 2.05c-.301 1.239-1.169 1.618-1.82 1.568-.654-.053-1.42-.52-1.426-1.661V12A6.076 6.076 0 0 0 12 5.93 6.076 6.076 0 0 0 5.93 12 6.076 6.076 0 0 0 12 18.07a6.02 6.02 0 0 0 4.3-1.792 3.9 3.9 0 0 0 3.32 1.805c.874 0 1.74-.292 2.437-.821.719-.547 1.256-1.336 1.553-2.285.047-.154.135-.504.135-.507l.002-.013c.175-.76.253-1.52.253-2.457 0-6.617-5.383-12-12-12"/></svg>
+			<a href="/cdn-cgi/l/email-protection">hi at this domain</a>
 		</div>
 
 		<a href="https://steamdb.info/faq/#how-to-contact-you" class="steamdb">
@@ -200,6 +227,7 @@
 			</svg>For all SteamDB questions, <span>please contact here</span>
 		</a>
 	</main>
+	<footer>MCMXCIV</footer>
 	<!--sse--><script>
 	(async () =>
 	{
