@@ -172,6 +172,14 @@
 		display: none;
 	}
 
+	.warning {
+		text-align: center;
+		background: var(--color-highlight);
+		color: var(--color-background);
+		font-size: calc(var(--font-size) / 2);
+		padding: 10px;
+	}
+
 	@media (max-width: 1100px) {
 		html {
 			--font-size: 30px;
@@ -200,6 +208,10 @@
 	</style>
 </head>
 <body>
+	<div class="warning">
+		<b>I will not message you on Discord.</b> I don't work for Valve or Steam.<br>
+		Pending bans and false reports on Steam is not a thing, <b>you are being scammed.</b>
+	</div>
 	<main>
 		<div class="hello">
 			Hi, I'm <span class="name">Pavel Djundik</span>,
