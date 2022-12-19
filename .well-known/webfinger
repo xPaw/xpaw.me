@@ -1,0 +1,25 @@
+{
+	"subject": "acct:xPaw@infosec.exchange",
+	"aliases":
+	[
+		"https://infosec.exchange/@xPaw",
+		"https://infosec.exchange/users/xPaw"
+	],
+	"links":
+	[
+		{
+			"rel": "http://webfinger.net/rel/profile-page",
+			"type": "text/html",
+			"href": "https://infosec.exchange/@xPaw"
+		},
+		{
+			"rel": "self",
+			"type": "application/activity+json",
+			"href": "https://infosec.exchange/users/xPaw"
+		},
+		{
+			"rel": "http://ostatus.org/schema/1.0/subscribe",
+			"template": "https://infosec.exchange/authorize_interaction?uri={uri}"
+		}
+	]
+}
