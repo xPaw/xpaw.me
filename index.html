@@ -53,8 +53,9 @@
 		-webkit-tap-highlight-color: transparent;
 
 		--color-background: #000;
+		--color-block: #011;
 		--color-primary: #fff;
-		--color-highlight: yellow;
+		--color-highlight: #ff0;
 	}
 
 	*, *:before, *:after {
@@ -83,7 +84,7 @@
 	}
 
 	a:hover {
-		color: #fff;
+		color: var(--color-primary);
 		text-decoration: underline;
 	}
 
@@ -98,7 +99,7 @@
 
 	main > div {
 		padding: 60px;
-		background-color: #111;
+		background-color: var(--color-block);
 		border-radius: 20px;
 	}
 
@@ -120,15 +121,15 @@
 		font-size: 1.2em;
 	}
 
-	.link path {
-		fill: #fff;
-	}
-
 	.link svg {
 		vertical-align: bottom;
 		margin-right: 5px;
 		height: calc(1em + 10px);
 		width: calc(1em + 10px);
+	}
+
+	svg path {
+		fill: currentColor;
 	}
 
 	.steamdb {
@@ -137,24 +138,13 @@
 		margin-top: 20px;
 		font-size: 15px;
 		text-decoration: none;
-		color: #fff;
-	}
-
-	.steamdb:hover,
-	.steamdb:focus {
-		background-color: #000;
-		text-decoration: underline;
+		color: inherit;
 	}
 
 	.steamdb svg {
 		flex-shrink: 0;
-		fill: currentColor;
 		vertical-align: bottom;
 		margin-right: 7px;
-	}
-
-	.steamdb a:not(:hover) {
-		color: inherit;
 	}
 
 	@media (max-width: 700px) {
