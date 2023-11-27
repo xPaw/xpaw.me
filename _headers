@@ -4,6 +4,8 @@
 	Content-Security-Policy: block-all-mixed-content; default-src 'none'; base-uri 'none'; form-action 'none'; style-src 'unsafe-inline'; script-src 'unsafe-inline'; font-src 'self'; img-src data:;
 	Referrer-Policy: strict-origin
 	X-Frame-Options: DENY
+	Link: </PlusJakartaSans-Regular.woff2>; rel=preload; as=font; crossorigin
+	Link: </Stardom-Regular.woff2>; rel=preload; as=font; crossorigin
 
 /*.woff2
 	Cross-Origin-Resource-Policy: same-origin
