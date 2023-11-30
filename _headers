@@ -7,4 +7,5 @@
 	Link: </RedditSans-ARegular.woff2>; rel=preload; as=font; crossorigin
 
 /*.woff2
+	Cache-Control: max-age=604800, public, immutable
 	Cross-Origin-Resource-Policy: same-origin
