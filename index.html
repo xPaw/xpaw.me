@@ -77,12 +77,11 @@
 	}
 
 	a {
-		color: var(--color-highlight);
+		color: inherit;
 		text-decoration: none;
 	}
 
 	a:hover {
-		color: var(--color-primary);
 		text-decoration: underline;
 	}
 
@@ -109,6 +108,10 @@
 	.name {
 		color: var(--color-highlight);
 		font-size: 1.5em;
+	}
+
+	.highlight {
+		color: var(--color-highlight);
 	}
 
 	.links {
@@ -155,7 +158,7 @@
 		}
 
 		main > div {
-			padding: 30px;
+			padding: 40px;
 		}
 	}
 
@@ -166,13 +169,7 @@
 		}
 
 		main > div {
-			padding: 20px;
-		}
-	}
-
-	@media (max-width: 380px) {
-		main > div {
-			padding: 15px;
+			padding: 25px;
 		}
 	}
 	</style>
@@ -187,7 +184,7 @@
 		</div>
 
 		<div class="links">
-			<div>Links</div>
+			<div class="highlight">Links</div>
 			<div class="link">
 				<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg>
 				<a href="https://twitter.com/thexpaw" rel="me" title="@thexpaw on X">@thexpaw</a>
@@ -211,7 +208,7 @@
 		</div>
 
 		<div class="links">
-			<div>Projects</div>
+			<div class="highlight">Projects</div>
 			<div class="link">
 				<a href="https://steamdb.info/">SteamDB</a>
 			</div>
