@@ -8,8 +8,8 @@
 
 	<title>xPaw ⚡ Pavel Djundik</title>
 
-	<meta name="description" content="Pavel is a full-stack developer, data miner, creator of SteamDB.">
-	<meta property="og:description" content="Pavel is a full-stack developer, data miner, creator of SteamDB.">
+	<meta name="description" content="Pavel is a programmer, data miner, creator of SteamDB.">
+	<meta property="og:description" content="Pavel is a programmer, data miner, creator of SteamDB.">
 	<meta property="og:title" content="xPaw &middot; Pavel Djundik">
 	<meta property="twitter:card" content="summary">
 	<meta property="twitter:site" content="@thexpaw">
@@ -26,7 +26,7 @@
 			"givenName": "Pavel",
 			"familyName": "Djundik",
 			"alternateName": "xPaw",
-			"description": "Pavel is a full-stack developer, data miner, creator of SteamDB.",
+			"description": "Pavel is a programmer, data miner, creator of SteamDB.",
 			"url": "https://xpaw.me/",
 			"image": "https://secure.gravatar.com/avatar/f9c6903a50d1d861a47a614862b00b89.png?s=375",
 			"sameAs": [
@@ -45,35 +45,36 @@
 		src: url(RedditSans-ARegular.woff2) format("woff2");
 	}
 
-	html {
+	:root {
 		box-sizing: border-box;
 		scrollbar-width: thin;
-		-webkit-tap-highlight-color: transparent;
-
-		--color-background: #000;
-		--color-block: #1c1c21;
-		--color-primary: #fff;
-		--color-highlight: #ff0;
+		-webkit-text-size-adjust: none;
+		cursor: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="%23FFF" d="M4.5.79v22.42l6.56-6.57h9.29L4.5.79z"></path></svg>'), auto;
 	}
 
 	*, *:before, *:after {
+		cursor: inherit;
 		box-sizing: inherit;
 	}
 
+	a:hover {
+		cursor: pointer;
+	}
+
 	body {
-		font: normal 24px/1.4 RedditSans, Arial, system-ui, sans-serif;
+		font: normal 16px/1.4 RedditSans, Arial, system-ui, sans-serif;
 		margin: 0;
 		display: flex;
 		flex-direction: column;
-		color: var(--color-primary);
-		background-color: var(--color-background);
+		color: #fff;
+		background-color: #030d13;
 		min-height: 100vh;
 		min-height: 100dvh;
 	}
 
 	::selection {
-		background: var(--color-highlight);
-		color: var(--color-background);
+		background: #074465;
+		color: #fff;
 	}
 
 	a {
@@ -88,150 +89,101 @@
 	main {
 		margin: auto;
 		padding: 20px;
-		gap: 60px;
+		gap: 30px;
 		display: flex;
+		flex-direction: column;
 		flex-wrap: wrap;
 		align-items: flex-start;
+		max-width: 500px;
 	}
 
-	main > div {
-		padding: 60px;
-		background-color: var(--color-block);
-		border-radius: 20px;
-	}
-
-	.hello {
-		font-size: 2em;
-		line-height: 1.2;
-	}
-
-	.name {
-		color: var(--color-highlight);
-		font-size: 1.5em;
-	}
-
-	.highlight {
-		color: var(--color-highlight);
+	.hello b {
+		font-size: 18px;
+		display: block;
+		margin-bottom: 5px;
 	}
 
 	.links {
 		display: flex;
-		flex-direction: column;
-		gap: 10px;
-		font-size: 1.2em;
+		flex-wrap: wrap;
+		gap: 5px;
+	}
+
+	.link {
+		border: 1.5px solid #074465;
+		display: flex;
+		align-items: center;
+		gap: 5px;
+		border-radius: 30px;
+		padding: 6px 8px;
+		line-height: 1;
+	}
+
+	.link:hover {
+		text-decoration: none;
+		border-color: #fff;
+		background-color: #074465;
 	}
 
 	.link svg {
-		vertical-align: bottom;
-		margin-right: 5px;
-		height: calc(1em + 10px);
-		width: calc(1em + 10px);
-	}
-
-	svg path {
-		fill: currentColor;
+		width: 1em;
+		height: 1em;
 	}
 
 	.steamdb {
-		display: inline-flex;
-		align-items: center;
-		margin-top: 20px;
-		font-size: 15px;
-		text-decoration: none;
-		color: inherit;
+		color: #ddd;
+		font-size: 14px;
 	}
 
-	.steamdb svg {
-		flex-shrink: 0;
-		vertical-align: bottom;
-		margin-right: 7px;
+	.steamdb a {
+		text-decoration: underline;
 	}
 
-	@media (max-width: 700px) {
-		body {
-			font-size: 4vw;
-		}
-
-		main {
-			margin-top: 0;
-			gap: 20px;
-		}
-
-		main > div {
-			padding: 40px;
-		}
-	}
-
-	@media (max-width: 530px) {
-		main {
-			padding: 15px;
-			gap: 15px;
-		}
-
-		main > div {
-			padding: 25px;
-		}
+	.steamdb a:hover {
+		color: #fff;
 	}
 	</style>
 </head>
 <body>
 	<main>
 		<div class="hello">
-			<span class="name">Pavel Djundik</span>
-			<br>full-stack developer,
-			<br>data miner,
-			<br>creator of SteamDB.
+			<b>Pavel Djundik</b>
+			programmer, data miner, creator of SteamDB.
 		</div>
 
 		<div class="links">
-			<div class="highlight">Links</div>
-			<div class="link">
-				<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg>
-				<a href="https://x.com/thexpaw" rel="me" title="@thexpaw on X">@thexpaw</a>
-			</div>
-			<div class="link">
-				<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
-				<a href="https://github.com/xPaw" rel="me" title="@xpaw on Github">@xpaw</a>
-			</div>
-			<div class="link">
-				<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M13.54 2.9a13.2 13.2 0 00-3.25-1c-.02 0-.04 0-.05.02-.15.25-.3.58-.41.83a12.18 12.18 0 00-3.66 0 8.4 8.4 0 00-.41-.83.05.05 0 00-.05-.02 13.16 13.16 0 00-3.28 1.03 13.5 13.5 0 00-2.34 9.14c1.37 1 2.7 1.61 4 2.02.01 0 .04 0 .05-.02.3-.42.58-.86.82-1.33a.05.05 0 00-.03-.07 8.76 8.76 0 01-1.25-.6.05.05 0 010-.08l.24-.2a.05.05 0 01.05 0 9.46 9.46 0 008.05 0h.05l.25.2c.03.02.02.07 0 .09-.4.23-.82.43-1.26.59a.05.05 0 00-.02.07c.24.47.51.91.81 1.33.02.02.04.03.06.02a13.23 13.23 0 004.02-2.06 13.41 13.41 0 00-2.39-9.12zm-8.2 7.31c-.78 0-1.43-.72-1.43-1.6 0-.9.64-1.62 1.44-1.62.8 0 1.45.73 1.43 1.61 0 .89-.63 1.61-1.43 1.61zm5.32 0c-.79 0-1.43-.72-1.43-1.6 0-.9.63-1.62 1.43-1.62.81 0 1.45.73 1.44 1.61 0 .89-.63 1.61-1.44 1.61z"/></svg>
-				<a href="https://discord.com/users/131859226145456128" title="@xpaw on Discord">@xpaw</a>
-			</div>
-			<div class="link">
-				<svg viewBox="0 0 38 38" aria-hidden="true"><path d="M36.4 8.4c-.6-4-4.1-7.2-8.3-7.8a67 67 0 0 0-9.6-.5c-6.3 0-7.7.4-8.4.5C6.1 1.2 2.3 4 1.4 8c-.4 2-.5 4.2-.4 6.2.1 3 .1 5.8.4 8.7.2 2 .5 3.9 1 5.8.8 3.4 4.3 6.3 7.7 7.5a21.2 21.2 0 0 0 12.6.3c1-.3 2-.6 2.8-1.2v-2.9a32 32 0 0 1-7.4.8c-4.3 0-5.5-2-5.8-2.8a8.6 8.6 0 0 1-.5-2.3h.1c2.4.5 4.8.8 7.3.8h1.7c2.5 0 5-.2 7.5-.7h.2c3.8-.7 7.4-3 7.8-8.7V17c0-.8.3-5.7 0-8.6Zm-5.9 14.2h-4V13c0-2-.8-3-2.6-3-2 0-2.9 1.1-2.9 3.6v5.3h-4v-5.3c0-2.5-1-3.7-2.9-3.7-1.7 0-2.6 1-2.6 3v9.7h-4v-10a7 7 0 0 1 1.6-4.8C10 6.6 11.6 6 13.4 6c2 0 3.6.8 4.6 2.4l1 1.6 1-1.6C21 6.8 22.6 6 24.7 6c1.7 0 3.2.6 4.2 1.8a7 7 0 0 1 1.6 4.9v10Z"/></svg>
-				<a href="https://infosec.exchange/@xPaw" rel="me" id="mastodon" title="@xpaw@infosec.exchange on Mastodon">xpaw</a>
-			</div>
-			<div class="link">
-				<svg viewBox="0 0 512 512" aria-hidden="true"><path d="M64 112c-8.8 0-16 7.2-16 16v22.1L220.5 291.7c20.7 17 50.4 17 71.1 0L464 150.1V128c0-8.8-7.2-16-16-16H64zM48 212.2V384c0 8.8 7.2 16 16 16H448c8.8 0 16-7.2 16-16V212.2L322 328.8c-38.4 31.5-93.7 31.5-132 0L48 212.2zM0 128C0 92.7 28.7 64 64 64H448c35.3 0 64 28.7 64 64V384c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V128z"/></svg>
-				<a href="/cdn-cgi/l/email-protection" title="My email">hi at this domain</a>
-			</div>
+			<a class="link" href="https://x.com/thexpaw" rel="me" title="@thexpaw on X">
+				<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg>
+				@thexpaw
+			</a>
+			<a class="link" href="https://github.com/xPaw" rel="me" title="@xpaw on Github">
+				<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+				@xpaw
+			</a>
+			<a class="link" href="https://discord.com/users/131859226145456128" title="@xpaw on Discord">
+				<svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M13.54 2.9a13.2 13.2 0 00-3.25-1c-.02 0-.04 0-.05.02-.15.25-.3.58-.41.83a12.18 12.18 0 00-3.66 0 8.4 8.4 0 00-.41-.83.05.05 0 00-.05-.02 13.16 13.16 0 00-3.28 1.03 13.5 13.5 0 00-2.34 9.14c1.37 1 2.7 1.61 4 2.02.01 0 .04 0 .05-.02.3-.42.58-.86.82-1.33a.05.05 0 00-.03-.07 8.76 8.76 0 01-1.25-.6.05.05 0 010-.08l.24-.2a.05.05 0 01.05 0 9.46 9.46 0 008.05 0h.05l.25.2c.03.02.02.07 0 .09-.4.23-.82.43-1.26.59a.05.05 0 00-.02.07c.24.47.51.91.81 1.33.02.02.04.03.06.02a13.23 13.23 0 004.02-2.06 13.41 13.41 0 00-2.39-9.12zm-8.2 7.31c-.78 0-1.43-.72-1.43-1.6 0-.9.64-1.62 1.44-1.62.8 0 1.45.73 1.43 1.61 0 .89-.63 1.61-1.43 1.61zm5.32 0c-.79 0-1.43-.72-1.43-1.6 0-.9.63-1.62 1.43-1.62.81 0 1.45.73 1.44 1.61 0 .89-.63 1.61-1.44 1.61z"/></svg>
+				@xpaw
+			</a>
+			<a class="link" href="https://infosec.exchange/@xPaw" rel="me" id="mastodon" title="@xpaw@infosec.exchange on Mastodon">
+				<svg viewBox="0 0 38 38" fill="currentColor" aria-hidden="true"><path d="M36.4 8.4c-.6-4-4.1-7.2-8.3-7.8a67 67 0 0 0-9.6-.5c-6.3 0-7.7.4-8.4.5C6.1 1.2 2.3 4 1.4 8c-.4 2-.5 4.2-.4 6.2.1 3 .1 5.8.4 8.7.2 2 .5 3.9 1 5.8.8 3.4 4.3 6.3 7.7 7.5a21.2 21.2 0 0 0 12.6.3c1-.3 2-.6 2.8-1.2v-2.9a32 32 0 0 1-7.4.8c-4.3 0-5.5-2-5.8-2.8a8.6 8.6 0 0 1-.5-2.3h.1c2.4.5 4.8.8 7.3.8h1.7c2.5 0 5-.2 7.5-.7h.2c3.8-.7 7.4-3 7.8-8.7V17c0-.8.3-5.7 0-8.6Zm-5.9 14.2h-4V13c0-2-.8-3-2.6-3-2 0-2.9 1.1-2.9 3.6v5.3h-4v-5.3c0-2.5-1-3.7-2.9-3.7-1.7 0-2.6 1-2.6 3v9.7h-4v-10a7 7 0 0 1 1.6-4.8C10 6.6 11.6 6 13.4 6c2 0 3.6.8 4.6 2.4l1 1.6 1-1.6C21 6.8 22.6 6 24.7 6c1.7 0 3.2.6 4.2 1.8a7 7 0 0 1 1.6 4.9v10Z"/></svg>
+				xpaw@infosec.exchange
+			</a>
+			<a class="link" href="/cdn-cgi/l/email-protection" title="My email">
+				<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+				email
+			</a>
 		</div>
 
 		<div class="links">
-			<div class="highlight">Projects</div>
-			<div class="link">
-				<a href="https://steamdb.info/">SteamDB</a>
-			</div>
-			<div class="link">
-				<a href="https://steamstat.us/">Steam Status</a>
-			</div>
-			<div class="link">
-				<a href="https://steamapi.xpaw.me/">Steam Web API Documentation</a>
-			</div>
-			<div class="link">
-				<a href="https://valveresourceformat.github.io/">Source 2 Viewer</a>
-			</div>
-			<div class="link">
-				<a href="https://thelounge.chat/">The Lounge</a>
-			</div>
-			<div>
-				<a href="https://steamdb.info/faq/#how-to-contact-you" class="steamdb">
-					<svg width="20" height="20" viewBox="0 0 128 128" aria-hidden="true">
-						<path fill-rule="evenodd" d="M63.9 0C30.5 0 3.1 11.9.1 27.1l35.6 6.7c2.9-.9 6.2-1.3 9.6-1.3l16.7-10c-.2-2.5 1.3-5.1 4.7-7.2 4.8-3.1 12.3-4.8 19.9-4.8 5.2-.1 10.5.7 15 2.2 11.2 3.8 13.7 11.1 5.7 16.3-5.1 3.3-13.3 5-21.4 4.8l-22 7.9c-.2 1.6-1.3 3.1-3.4 4.5-5.9 3.8-17.4 4.7-25.6 1.9-3.6-1.2-6-3-7-4.8L2.5 38.4c2.3 3.6 6 6.9 10.8 9.8C5 53 0 59 0 65.5c0 6.4 4.8 12.3 12.9 17.1C4.8 87.3 0 93.2 0 99.6 0 115.3 28.6 128 64 128c35.3 0 64-12.7 64-28.4 0-6.4-4.8-12.3-12.9-17 8.1-4.8 12.9-10.7 12.9-17.1 0-6.5-5-12.6-13.4-17.4 8.3-5.1 13.3-11.4 13.3-18.2 0-16.5-28.7-29.9-64-29.9zm22.8 14.2c-5.2.1-10.2 1.2-13.4 3.3-5.5 3.6-3.8 8.5 3.8 11.1 7.6 2.6 18.1 1.8 23.6-1.8s3.8-8.5-3.8-11c-3.1-1-6.7-1.5-10.2-1.5zm.3 1.7c7.4 0 13.3 2.8 13.3 6.2 0 3.4-5.9 6.2-13.3 6.2s-13.3-2.8-13.3-6.2c0-3.4 5.9-6.2 13.3-6.2zM45.3 34.4c-1.6.1-3.1.2-4.6.4l9.1 1.7a10.8 5 0 1 1-8.1 9.3l-8.9-1.7c1 .9 2.4 1.7 4.3 2.4 6.4 2.2 15.4 1.5 20-1.5s3.2-7.2-3.2-9.3c-2.6-.9-5.7-1.3-8.6-1.3zM109 51v9.3c0 11-20.2 19.9-45 19.9-24.9 0-45-8.9-45-19.9v-9.2c11.5 5.3 27.4 8.6 44.9 8.6 17.6 0 33.6-3.3 45.2-8.7zm0 34.6v8.8c0 11-20.2 19.9-45 19.9-24.9 0-45-8.9-45-19.9v-8.8c11.6 5.1 27.4 8.2 45 8.2s33.5-3.1 45-8.2z"/>
-					</svg>
-					<span>For all SteamDB inquiries, please contact here</span>
-				</a>
-			</div>
+			<a class="link" href="https://steamdb.info/">SteamDB</a>
+			<a class="link" href="https://valveresourceformat.github.io/">Source 2 Viewer</a>
+			<a class="link" href="https://steamstat.us/">Steam Status</a>
+			<a class="link" href="https://steamapi.xpaw.me/">Steam Web API Documentation</a>
+			<a class="link" href="https://thelounge.chat/">The Lounge</a>
+		</div>
+
+		<div class="steamdb">
+			For all SteamDB inquiries, <a href="https://steamdb.info/faq/#how-to-contact-you">please contact here</a>
 		</div>
 	</main>
 
@@ -243,12 +195,8 @@
 			return;
 		}
 
-		const mastodon = document.getElementById( 'mastodon' );
-		mastodon.textContent += `\x40${location.hostname}`;
-
 		const text = `\x68\x69\x40${location.hostname}`;
 		const element = document.querySelector( 'a[href="/cdn-cgi/l/email-protection"]' );
-		element.textContent = text;
 		element.href = `\x6d\x61\x69\x6C\x74\x6F\x3A${text}`;
 	})();
 	</script>
