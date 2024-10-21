@@ -110,6 +110,7 @@
 	}
 
 	.link {
+		background-color: #030d13;
 		border: 2px solid #074465;
 		display: flex;
 		align-items: center;
@@ -117,7 +118,9 @@
 		border-radius: 30px;
 		padding: 10px 12px;
 		line-height: 1;
+		position: relative;
 		transition: all .15s cubic-bezier(0.3, 1.5, 0.6, 1);
+		z-index: 1;
 	}
 
 	.link:hover {
@@ -125,7 +128,32 @@
 		border-color: #fff;
 		background-color: #074465;
 		transform: scale(1.2) rotate(-3deg);
-		z-index: 3;
+		z-index: 2;
+	}
+
+	.link[aria-label]:before {
+		visibility: hidden;
+		position: absolute;
+		white-space: nowrap;
+		content: attr(aria-label);
+		top: -2em;
+		left: 50%;
+		content: attr(aria-label);
+		background: blue;
+		border: 2px solid #fff;
+		padding: 5px 12px;
+		border-radius: 30px;
+		font-size: 14px;
+		color: #fff;
+		pointer-events: none;
+		transform-origin: 0 4em;
+		transform: scale(0) translateX(-50%) rotate(0);
+		transition: all .15s cubic-bezier(0.3, 1.5, 0.6, 1);
+	}
+
+	.link[aria-label]:hover:before {
+		visibility: visible;
+		transform: scale(1) translateX(-50%) rotate(6deg);
 	}
 
 	.link svg {
@@ -145,6 +173,14 @@
 	.steamdb a:hover {
 		color: #fff;
 	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.link,
+		.link:before {
+			transform: none !important;
+			transition: none !important;
+		}
+	}
 	</style>
 </head>
 <body>
@@ -155,27 +191,27 @@
 		</div>
 
 		<div class="links">
-			<a class="link" href="https://x.com/thexpaw" rel="me" title="@thexpaw on X">
+			<a class="link" href="https://x.com/thexpaw" rel="me" aria-label="X (Twitter)">
 				<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg>
 				@thexpaw
 			</a>
-			<a class="link" href="https://github.com/xPaw" rel="me" title="@xpaw on Github">
+			<a class="link" href="https://github.com/xPaw" rel="me" aria-label="GitHub">
 				<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
 				@xpaw
 			</a>
-			<a class="link" href="https://bsky.app/profile/xpaw.me" rel="me" title="@xpaw.me on Bluesky">
+			<a class="link" href="https://bsky.app/profile/xpaw.me" rel="me" aria-label="Bluesky">
 				<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 10.8c-1.09-2.11-4.05-6.05-6.8-8C2.57.95 1.56 1.28.9 1.58.14 1.9 0 3.08 0 3.77s.38 5.65.62 6.48c.82 2.73 3.72 3.66 6.39 3.36-3.92.58-7.39 2-2.83 7.08 5.01 5.19 6.87-1.11 7.82-4.3.95 3.19 2.05 9.26 7.73 4.3 4.27-4.3 1.18-6.5-2.74-7.08a8.74 8.74 0 0 1-.41-.05l.41.05c2.67.3 5.57-.63 6.39-3.36.24-.83.62-5.8.62-6.48 0-.7-.14-1.86-.9-2.2-.66-.3-1.67-.63-4.3 1.23-2.75 1.95-5.71 5.89-6.8 8Z"/></svg>
 				@xpaw.me
 			</a>
-			<a class="link" href="https://infosec.exchange/@xPaw" rel="me"  title="@xpaw@infosec.exchange on Mastodon">
+			<a class="link" href="https://infosec.exchange/@xPaw" rel="me"  aria-label="Mastodon">
 				<svg viewBox="0 0 38 38" fill="currentColor" aria-hidden="true"><path d="M36.4 8.4c-.6-4-4.1-7.2-8.3-7.8a67 67 0 0 0-9.6-.5c-6.3 0-7.7.4-8.4.5C6.1 1.2 2.3 4 1.4 8c-.4 2-.5 4.2-.4 6.2.1 3 .1 5.8.4 8.7.2 2 .5 3.9 1 5.8.8 3.4 4.3 6.3 7.7 7.5a21.2 21.2 0 0 0 12.6.3c1-.3 2-.6 2.8-1.2v-2.9a32 32 0 0 1-7.4.8c-4.3 0-5.5-2-5.8-2.8a8.6 8.6 0 0 1-.5-2.3h.1c2.4.5 4.8.8 7.3.8h1.7c2.5 0 5-.2 7.5-.7h.2c3.8-.7 7.4-3 7.8-8.7V17c0-.8.3-5.7 0-8.6Zm-5.9 14.2h-4V13c0-2-.8-3-2.6-3-2 0-2.9 1.1-2.9 3.6v5.3h-4v-5.3c0-2.5-1-3.7-2.9-3.7-1.7 0-2.6 1-2.6 3v9.7h-4v-10a7 7 0 0 1 1.6-4.8C10 6.6 11.6 6 13.4 6c2 0 3.6.8 4.6 2.4l1 1.6 1-1.6C21 6.8 22.6 6 24.7 6c1.7 0 3.2.6 4.2 1.8a7 7 0 0 1 1.6 4.9v10Z"/></svg>
 				xpaw@infosec.exchange
 			</a>
-			<a class="link" href="https://discord.com/users/131859226145456128" title="@xpaw on Discord">
+			<a class="link" href="https://discord.com/users/131859226145456128" aria-label="Discord">
 				<svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M13.54 2.9a13.2 13.2 0 00-3.25-1c-.02 0-.04 0-.05.02-.15.25-.3.58-.41.83a12.18 12.18 0 00-3.66 0 8.4 8.4 0 00-.41-.83.05.05 0 00-.05-.02 13.16 13.16 0 00-3.28 1.03 13.5 13.5 0 00-2.34 9.14c1.37 1 2.7 1.61 4 2.02.01 0 .04 0 .05-.02.3-.42.58-.86.82-1.33a.05.05 0 00-.03-.07 8.76 8.76 0 01-1.25-.6.05.05 0 010-.08l.24-.2a.05.05 0 01.05 0 9.46 9.46 0 008.05 0h.05l.25.2c.03.02.02.07 0 .09-.4.23-.82.43-1.26.59a.05.05 0 00-.02.07c.24.47.51.91.81 1.33.02.02.04.03.06.02a13.23 13.23 0 004.02-2.06 13.41 13.41 0 00-2.39-9.12zm-8.2 7.31c-.78 0-1.43-.72-1.43-1.6 0-.9.64-1.62 1.44-1.62.8 0 1.45.73 1.43 1.61 0 .89-.63 1.61-1.43 1.61zm5.32 0c-.79 0-1.43-.72-1.43-1.6 0-.9.63-1.62 1.43-1.62.81 0 1.45.73 1.44 1.61 0 .89-.63 1.61-1.44 1.61z"/></svg>
 				@xpaw
 			</a>
-			<a class="link" href="/cdn-cgi/l/email-protection" title="My email">
+			<a class="link" href="/cdn-cgi/l/email-protection" aria-label="?">
 				<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
 				email
 			</a>
@@ -205,6 +241,7 @@
 		const text = `\x68\x69\x40${location.hostname}`;
 		const element = document.querySelector( 'a[href="/cdn-cgi/l/email-protection"]' );
 		element.href = `\x6d\x61\x69\x6C\x74\x6F\x3A${text}`;
+		element.setAttribute( 'aria-label', text );
 	})();
 	</script>
 </body>
